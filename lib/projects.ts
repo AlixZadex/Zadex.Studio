@@ -5,9 +5,42 @@ export type Project = {
   summary: string;
   gradient: string;
   accent: string;
+  image?: string;
+  gallery?: string[];
+  url?: string;
+  github?: string;
 };
 
 export const projects: Project[] = [
+  {
+    slug: "ali-nekzad-portfolio",
+    name: "Ali Nekzad Portfolio",
+    category: "Portfolio",
+    summary:
+      "A personal portfolio focused on clear storytelling, modern frontend polish, and strong presentation of projects and technical profile.",
+    gradient: "from-slate-950 via-blue-950/40 to-black",
+    accent: "from-cyan-400/20 to-transparent",
+    image: "/images/Portfolio.png",
+    url: "https://portfolio-ali-n.netlify.app/",
+    github: "https://github.com/AlixZadex/Portfolio",
+  },
+  {
+    slug: "brandbergsskolan",
+    name: "Brandbergsskolan",
+    category: "School Administration",
+    summary:
+      "A complete absence management system for school staff with role-based workflows, attachment handling, and a practical admin dashboard.",
+    gradient: "from-slate-950 via-blue-950/40 to-black",
+    accent: "from-cyan-400/20 to-transparent",
+    image: "/images/BBS2.png",
+    gallery: [
+      "/images/BBS1 (2).png",
+      "/images/BBS2.png",
+      "/images/BBS3.png",
+      "/images/BBS4.png",
+    ],
+    url: "https://github.com/AlixZadex/Brandbergsskolan",
+  },
   {
     slug: "northline-capital",
     name: "Northline Capital",
