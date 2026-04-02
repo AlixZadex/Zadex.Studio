@@ -4,38 +4,14 @@ export const site = {
   description:
     "zadex is a digital studio crafting fast, refined websites for brands that refuse to blend in.",
   email: "info@zadex.se",
-  phone: "0763422441",
+  phone: "+46 76 342 24 41",
   address: "Stockholm, Sweden",
 } as const;
 
-/** E.164-style value for `tel:` links (Swedish mobile starting with 0 → +46). */
+/** E.164-style value for `tel:` links (handles 07… and +46…). */
 export function phoneTelHref(): string {
   const digits = site.phone.replace(/\D/g, "");
   if (digits.startsWith("0")) return `+46${digits.slice(1)}`;
-  return digits.startsWith("+") ? digits : `+${digits}`;
+  if (digits.startsWith("46")) return `+${digits}`;
+  return `+${digits}`;
 }
-
-export const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/projects", label: "Projects" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-] as const;
-
-export const footerLinks = {
-  company: [
-    { href: "/about", label: "About" },
-    { href: "/process", label: "Process" },
-    { href: "/contact", label: "Contact" },
-  ],
-  work: [
-    { href: "/services", label: "Services" },
-    { href: "/projects", label: "Projects" },
-  ],
-  social: [
-    { href: "https://linkedin.com", label: "LinkedIn" },
-    { href: "https://instagram.com", label: "Instagram" },
-    { href: "https://x.com", label: "X" },
-  ],
-} as const;

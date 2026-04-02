@@ -5,12 +5,19 @@ import { HomeHero } from "@/components/sections/home/HomeHero";
 import { ServicesIntro } from "@/components/sections/home/ServicesIntro";
 import { Testimonials } from "@/components/sections/home/Testimonials";
 import { WhyZadex } from "@/components/sections/home/WhyZadex";
+import { isAppLocale } from "@/lib/i18n/config";
+import type { Locale } from "@/lib/i18n/messages";
+import { pageMetadata } from "@/lib/i18n/seo";
 
-export const metadata: Metadata = {
-  title: "Home",
-  description:
-    "zadex crafts premium, fast, and refined websites for businesses that want clarity, performance, and standout digital presence.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale: raw } = await params;
+  const locale: Locale = isAppLocale(raw) ? raw : "sv";
+  return pageMetadata(locale, "home");
+}
 
 export default function HomePage() {
   return (

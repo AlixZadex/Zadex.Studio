@@ -4,7 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import type { Project } from "@/lib/projects";
+import { useLocale } from "@/lib/i18n/LanguageContext";
+import { useLocalizedPath } from "@/lib/i18n/useLocalizedPath";
+import { getProjectCopy, type Project } from "@/lib/projects";
 
 type ProjectCardProps = {
   project: Project;
@@ -12,7 +14,10 @@ type ProjectCardProps = {
 };
 
 export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
-  const href = project.url ?? "/contact";
+  const { locale, t } = useLocale();
+  const lp = useLocalizedPath();
+  const { category, summary } = getProjectCopy(project, locale);
+  const href = project.url ?? lp("/contact");
   const isExternal = Boolean(project.url);
   const githubHref = project.github;
   const images = project.gallery?.length ? project.gallery : project.image ? [project.image] : [];
@@ -55,12 +60,12 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent" />
           <div className="absolute inset-0 flex items-end p-6 sm:p-8">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">{project.category}</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">{category}</p>
               <h3 className="mt-2 font-display text-2xl tracking-tight text-white sm:text-3xl">{project.name}</h3>
             </div>
           </div>
           <div className="absolute right-6 top-6 rounded-full border border-white/10 bg-black/30 px-3 py-1 text-[10px] font-medium uppercase tracking-widest text-white/70 backdrop-blur">
-            {isExternal ? "Live site" : "Case study"}
+            {isExternal ? t("project.liveSite") : t("project.caseStudy")}
           </div>
 
           {hasGallery ? (
@@ -69,7 +74,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                 type="button"
                 onClick={goToPreviousImage}
                 className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/20 bg-black/45 px-3 py-2 text-sm text-white transition hover:bg-black/70"
-                aria-label="Show previous image"
+                aria-label={t("project.prevImage")}
               >
                 ←
               </button>
@@ -77,7 +82,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                 type="button"
                 onClick={goToNextImage}
                 className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/20 bg-black/45 px-3 py-2 text-sm text-white transition hover:bg-black/70"
-                aria-label="Show next image"
+                aria-label={t("project.nextImage")}
               >
                 →
               </button>
@@ -90,7 +95,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                     className={`h-2.5 w-2.5 rounded-full transition ${
                       imageIndex === activeImageIndex ? "bg-white" : "bg-white/45 hover:bg-white/70"
                     }`}
-                    aria-label={`Show image ${imageIndex + 1}`}
+                    aria-label={`${t("project.showImage")} ${imageIndex + 1}`}
                   />
                 ))}
               </div>
@@ -98,7 +103,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           ) : null}
         </div>
         <div className="relative px-6 py-6 sm:px-8 sm:py-7">
-          <p className="text-sm leading-relaxed text-muted">{project.summary}</p>
+          <p className="text-sm leading-relaxed text-muted">{summary}</p>
           <div className="mt-4 flex items-center justify-between gap-3">
             <div className="flex items-center gap-4">
               <Link
@@ -107,7 +112,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                 target={isExternal ? "_blank" : undefined}
                 rel={isExternal ? "noopener noreferrer" : undefined}
               >
-                {isExternal ? "View project" : "Discuss a similar build"}
+                {isExternal ? t("project.view") : t("project.discuss")}
                 <span aria-hidden>→</span>
               </Link>
               {githubHref ? (
@@ -117,7 +122,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  GitHub
+                  {t("project.github")}
                   <span aria-hidden>↗</span>
                 </Link>
               ) : null}

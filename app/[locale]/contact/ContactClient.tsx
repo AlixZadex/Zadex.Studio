@@ -1,23 +1,21 @@
-import type { Metadata } from "next";
+"use client";
+
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { PageHero } from "@/components/sections/PageHero";
+import { useLocale } from "@/lib/i18n/LanguageContext";
 import { phoneTelHref, site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Contact zadex to discuss your website, timeline, and goals—fast replies, clear next steps, and a premium collaboration experience.",
-};
+export function ContactClient() {
+  const { t } = useLocale();
 
-export default function ContactPage() {
   return (
     <>
       <PageHero
-        eyebrow="Contact"
-        title="Tell us what you are building."
-        description="Expect a thoughtful reply within one business day. If we are a fit, we will propose a focused plan—not a generic pitch deck."
+        eyebrow={t("contact.hero.eyebrow")}
+        title={t("contact.hero.title")}
+        description={t("contact.hero.description")}
       />
 
       <section className="pb-20 sm:pb-28">
@@ -26,7 +24,7 @@ export default function ContactPage() {
             <Reveal>
               <div className="space-y-8">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">Email</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">{t("contact.label.email")}</p>
                   <a
                     href={`mailto:${site.email}`}
                     className="mt-2 block text-lg text-white underline-offset-4 hover:text-accent hover:underline"
@@ -35,17 +33,17 @@ export default function ContactPage() {
                   </a>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">Phone</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">{t("contact.label.phone")}</p>
                   <a href={`tel:${phoneTelHref()}`} className="mt-2 block text-lg text-white hover:text-accent">
                     {site.phone}
                   </a>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">Studio</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">{t("contact.label.studio")}</p>
                   <p className="mt-2 text-lg text-muted">{site.address}</p>
                 </div>
                 <div className="rounded-3xl border border-white/[0.08] bg-white/[0.02] p-6 text-sm leading-relaxed text-muted">
-                  If you already have a brief, timeline, or references—attach context in your message. The more concrete you are, the more useful our first response will be.
+                  {t("contact.note")}
                 </div>
               </div>
             </Reveal>

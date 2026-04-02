@@ -3,10 +3,12 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
+export type ServiceOption = { value: string; label: string };
+
 type ServiceSelectProps = {
   id: string;
   labelId: string;
-  options: readonly string[];
+  options: readonly ServiceOption[];
   value: string;
   onChange: (value: string) => void;
   placeholder: string;
@@ -45,7 +47,8 @@ export function ServiceSelect({
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
-  const display = value || placeholder;
+  const selectedLabel = value ? options.find((o) => o.value === value)?.label : undefined;
+  const display = selectedLabel || placeholder;
   const displayMuted = !value;
 
   return (
@@ -91,10 +94,10 @@ export function ServiceSelect({
             className="absolute left-0 right-0 z-50 mt-2 max-h-64 overflow-auto rounded-2xl border border-white/[0.12] bg-[#111] py-1 shadow-[0_24px_48px_rgba(0,0,0,0.55)]"
           >
             {options.map((opt) => {
-              const selected = value === opt;
+              const selected = value === opt.value;
               return (
                 <button
-                  key={opt}
+                  key={opt.value}
                   type="button"
                   role="option"
                   aria-selected={selected}
@@ -104,11 +107,11 @@ export function ServiceSelect({
                       : "text-white/90 hover:bg-white/[0.08] hover:text-white"
                   }`}
                   onClick={() => {
-                    onChange(opt);
+                    onChange(opt.value);
                     setOpen(false);
                   }}
                 >
-                  {opt}
+                  {opt.label}
                 </button>
               );
             })}

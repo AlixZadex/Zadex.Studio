@@ -1,22 +1,29 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useMemo, useState, type FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { ServiceSelect } from "@/components/contact/ServiceSelect";
+import { useLocale } from "@/lib/i18n/LanguageContext";
+import type { MessageKey } from "@/lib/i18n/messages";
 
 type FieldErrors = Partial<Record<string, string>>;
 
-const serviceOptions = [
-  "Business website",
-  "Landing page",
-  "Website redesign",
-  "Frontend development",
-  "UI/UX design",
-  "Something else",
-];
+const SERVICE_DEF = [
+  { value: "Business website", labelKey: "contact.service.businessWebsite" },
+  { value: "Landing page", labelKey: "contact.service.landingPage" },
+  { value: "Website redesign", labelKey: "contact.service.redesign" },
+  { value: "Frontend development", labelKey: "contact.service.frontend" },
+  { value: "UI/UX design", labelKey: "contact.service.uiux" },
+  { value: "Something else", labelKey: "contact.service.other" },
+] as const satisfies readonly { value: string; labelKey: MessageKey }[];
 
 export function ContactForm() {
+  const { t } = useLocale();
+  const serviceOptions = useMemo(
+    () => SERVICE_DEF.map((o) => ({ value: o.value, label: t(o.labelKey) })),
+    [t],
+  );
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -33,7 +40,7 @@ export function ContactForm() {
     setFormError(null);
 
     if (!service.trim()) {
-      setFieldErrors({ service: "Please select a service." });
+      setFieldErrors({ service: t("contact.form.selectService") });
       return;
     }
 
@@ -60,7 +67,7 @@ export function ContactForm() {
 
       if (!res.ok) {
         if (data.fieldErrors) setFieldErrors(data.fieldErrors);
-        setFormError(data.message ?? "Something went wrong.");
+        setFormError(data.message ?? t("contact.form.errorGeneric"));
         setStatus("idle");
         return;
       }
@@ -73,7 +80,7 @@ export function ContactForm() {
       setService("");
       setMessage("");
     } catch {
-      setFormError("Network error. Check your connection and try again.");
+      setFormError(t("contact.form.errorNetwork"));
       setStatus("idle");
     }
   }
@@ -94,13 +101,11 @@ export function ContactForm() {
             <path strokeWidth="2" d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
-        <h2 className="font-display text-2xl text-white">Message received</h2>
-        <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-muted">
-          Thank you — your note is on its way. We typically reply within one business day with clear next steps.
-        </p>
+        <h2 className="font-display text-2xl text-white">{t("contact.form.successTitle")}</h2>
+        <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-muted">{t("contact.form.successBody")}</p>
         <div className="mt-8">
           <Button type="button" variant="secondary" onClick={() => setStatus("idle")}>
-            Send another message
+            {t("contact.form.sendAnother")}
           </Button>
         </div>
       </motion.div>
@@ -126,7 +131,7 @@ export function ContactForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="mb-2 block text-xs font-medium uppercase tracking-widest text-white/50">
-            Name
+            {t("contact.form.name")}
           </label>
           <input
             id="name"
@@ -144,7 +149,7 @@ export function ContactForm() {
         </div>
         <div>
           <label htmlFor="email" className="mb-2 block text-xs font-medium uppercase tracking-widest text-white/50">
-            Email
+            {t("contact.form.email")}
           </label>
           <input
             id="email"
@@ -166,7 +171,7 @@ export function ContactForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="phone" className="mb-2 block text-xs font-medium uppercase tracking-widest text-white/50">
-            Phone
+            {t("contact.form.phone")}
           </label>
           <input
             id="phone"
@@ -185,7 +190,7 @@ export function ContactForm() {
         </div>
         <div>
           <label htmlFor="company" className="mb-2 block text-xs font-medium uppercase tracking-widest text-white/50">
-            Company
+            {t("contact.form.company")}
           </label>
           <input
             id="company"
@@ -204,7 +209,7 @@ export function ContactForm() {
 
       <div>
         <label id="service-label" htmlFor="service" className="mb-2 block text-xs font-medium uppercase tracking-widest text-white/50">
-          Service needed
+          {t("contact.form.service")}
         </label>
         <ServiceSelect
           id="service"
@@ -212,7 +217,7 @@ export function ContactForm() {
           options={serviceOptions}
           value={service}
           onChange={setService}
-          placeholder="Select a service"
+          placeholder={t("contact.form.selectPlaceholder")}
           disabled={status === "loading"}
           hasError={Boolean(fieldErrors.service)}
         />
@@ -223,7 +228,7 @@ export function ContactForm() {
 
       <div>
         <label htmlFor="message" className="mb-2 block text-xs font-medium uppercase tracking-widest text-white/50">
-          Message
+          {t("contact.form.message")}
         </label>
         <textarea
           id="message"
@@ -232,7 +237,7 @@ export function ContactForm() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           className={`${inputClass} resize-none`}
-          placeholder="Tell us about goals, timeline, and anything we should know."
+          placeholder={t("contact.form.placeholder")}
           required
           disabled={status === "loading"}
         />
@@ -243,7 +248,7 @@ export function ContactForm() {
 
       <div className="pt-2">
         <Button type="submit" variant="primary" disabled={status === "loading"} className="w-full sm:w-auto">
-          {status === "loading" ? "Sending…" : "Send message"}
+          {status === "loading" ? t("contact.form.sending") : t("contact.form.submit")}
         </Button>
       </div>
     </form>
