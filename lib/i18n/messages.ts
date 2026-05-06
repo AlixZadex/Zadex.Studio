@@ -33,6 +33,9 @@ const en = {
   "home.hero.cta1": "Start a project",
   "home.hero.cta2": "View selected work",
   "home.hero.emailHint": "Prefer email?",
+  "home.hero.trust1": "Reply within one business day",
+  "home.hero.trust2": "Senior-led delivery",
+  "home.hero.trust3": "Built for speed and clarity",
 
   "featured.eyebrow": "Selected work",
   "featured.title": "Recent launches with measurable impact.",
@@ -258,6 +261,9 @@ const sv: Record<keyof typeof en, string> = {
   "home.hero.cta1": "Starta ett projekt",
   "home.hero.cta2": "Se utvalt arbete",
   "home.hero.emailHint": "Föredrar du e-post?",
+  "home.hero.trust1": "Svar inom en arbetsdag",
+  "home.hero.trust2": "Seniordriven leverans",
+  "home.hero.trust3": "Byggt för tydlighet och hastighet",
 
   "featured.eyebrow": "Utvalt arbete",
   "featured.title": "Senaste lanseringar med mätbar effekt.",

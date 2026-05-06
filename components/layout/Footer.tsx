@@ -18,9 +18,7 @@ const workLinks = [
 ];
 
 const socialLinks = [
-  { href: "https://linkedin.com", label: "LinkedIn" },
-  { href: "https://instagram.com", label: "Instagram" },
-  { href: "https://x.com", label: "X" },
+  { href: "https://www.instagram.com/zadex.studio/", label: "Instagram" },
 ] as const;
 
 export function Footer() {
@@ -83,7 +81,10 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {site.name}. {t("footer.rights")}
           </p>
-          <p className="text-white/40">{site.address}</p>
+          <div className="text-white/40 sm:text-right">
+            <p>{site.address}</p>
+            <p className="mt-1">Org.nr {site.orgNumber}</p>
+          </div>
         </div>
       </Container>
     </footer>

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView, type Variants } from "framer-motion";
+import { motion, useInView, useReducedMotion, type Variants } from "framer-motion";
 import { useRef, type ReactNode } from "react";
 
 type RevealProps = {
@@ -11,14 +11,15 @@ type RevealProps = {
 
 export function Reveal({ children, className = "", delay = 0 }: RevealProps) {
   const ref = useRef(null);
+  const prefersReducedMotion = useReducedMotion();
   const isInView = useInView(ref, { once: true, margin: "-10% 0px" });
 
   const variants: Variants = {
-    hidden: { opacity: 0, y: 24 },
+    hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 24 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1], delay },
+      transition: { duration: prefersReducedMotion ? 0 : 0.55, ease: [0.22, 1, 0.36, 1], delay },
     },
   };
 

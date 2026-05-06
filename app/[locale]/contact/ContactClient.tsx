@@ -42,6 +42,10 @@ export function ContactClient() {
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">{t("contact.label.studio")}</p>
                   <p className="mt-2 text-lg text-muted">{site.address}</p>
                 </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">Org.nr</p>
+                  <p className="mt-2 text-lg text-muted">{site.orgNumber}</p>
+                </div>
                 <div className="rounded-3xl border border-white/[0.08] bg-white/[0.02] p-6 text-sm leading-relaxed text-muted">
                   {t("contact.note")}
                 </div>

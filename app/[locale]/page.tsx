@@ -23,11 +23,21 @@ export default function HomePage() {
   return (
     <>
       <HomeHero />
-      <ServicesIntro />
-      <WhyZadex />
-      <FeaturedProjects />
-      <Testimonials />
-      <CtaBanner />
+      <div className="content-auto">
+        <ServicesIntro />
+      </div>
+      <div className="content-auto">
+        <WhyZadex />
+      </div>
+      <div className="content-auto">
+        <FeaturedProjects />
+      </div>
+      <div className="content-auto">
+        <Testimonials />
+      </div>
+      <div className="content-auto">
+        <CtaBanner />
+      </div>
     </>
   );
 }

@@ -61,6 +61,13 @@ export function Navbar() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   const isActive = (path: string) => {
     const full = lp(path);
     if (path === "/") return pathname === full || pathname === `${full}/`;
@@ -84,6 +91,7 @@ export function Navbar() {
             <Link
               key={link.href}
               href={lp(link.href)}
+              aria-current={isActive(link.href) ? "page" : undefined}
               className={`rounded-full px-3 py-2 text-sm transition-colors ${
                 isActive(link.href)
                   ? "bg-white/[0.06] text-white"
@@ -137,6 +145,7 @@ export function Navbar() {
                 >
                   <Link
                     href={lp(link.href)}
+                    aria-current={isActive(link.href) ? "page" : undefined}
                     className={`block rounded-xl px-3 py-3 text-base ${
                       isActive(link.href) ? "bg-white/[0.06] text-white" : "text-muted"
                     }`}

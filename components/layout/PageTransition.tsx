@@ -1,12 +1,17 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { pageTransition } from "@/lib/motion";
 
 export function PageTransition({ children }: { children: ReactNode }) {
   const pathname = usePathname();
+  const prefersReducedMotion = useReducedMotion();
+
+  if (prefersReducedMotion) {
+    return <div className="min-h-[60vh]">{children}</div>;
+  }
 
   return (
     <AnimatePresence mode="wait">

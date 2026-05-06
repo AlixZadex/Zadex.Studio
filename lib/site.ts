@@ -3,6 +3,7 @@ export const site = {
   tagline: "Digital experiences that convert.",
   description:
     "zadex is a digital studio crafting fast, refined websites for brands that refuse to blend in.",
+  orgNumber: "0006202014",
   email: "info@zadex.se",
   phone: "+46 76 342 24 41",
   address: "Stockholm, Sweden",

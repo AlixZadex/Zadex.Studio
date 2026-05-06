@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { useLocale } from "@/lib/i18n/LanguageContext";
 import { useLocalizedPath } from "@/lib/i18n/useLocalizedPath";
 import { getProjectCopy, type Project } from "@/lib/projects";
@@ -33,13 +32,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   };
 
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-10%" }}
-      transition={{ duration: 0.5, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
-      className="group relative"
-    >
+    <article className="group relative">
       <div
         className={`relative overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-br ${project.gradient} p-1 transition duration-500 group-hover:border-accent/25`}
       >
@@ -52,6 +45,10 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
               src={images[activeImageIndex]}
               alt={`${project.name} preview ${activeImageIndex + 1}`}
               fill
+              quality={72}
+              priority={index === 0}
+              loading={index === 0 ? "eager" : "lazy"}
+              fetchPriority={index === 0 ? "high" : "auto"}
               sizes="(min-width: 1024px) 33vw, 100vw"
               className="object-cover object-top transition duration-700 group-hover:scale-[1.02]"
             />
@@ -135,6 +132,6 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           </div>
         </div>
       </div>
-    </motion.article>
+    </article>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { useLocale } from "@/lib/i18n/LanguageContext";
@@ -26,16 +26,18 @@ const heroItem = {
 export function HomeHero() {
   const { t } = useLocale();
   const lp = useLocalizedPath();
+  const prefersReducedMotion = useReducedMotion();
+  const trustPoints = [t("home.hero.trust1"), t("home.hero.trust2"), t("home.hero.trust3")];
 
   return (
     <section className="relative overflow-hidden border-b border-white/[0.06]">
-      <div className="pointer-events-none absolute -left-1/3 top-0 h-[520px] w-[520px] rounded-full bg-accent/10 blur-[120px]" />
-      <div className="pointer-events-none absolute -right-1/4 bottom-0 h-[420px] w-[420px] rounded-full bg-white/[0.04] blur-[100px]" />
+      <div className="pointer-events-none absolute -left-1/3 top-0 hidden h-[520px] w-[520px] rounded-full bg-accent/10 blur-[100px] sm:block" />
+      <div className="pointer-events-none absolute -right-1/4 bottom-0 hidden h-[420px] w-[420px] rounded-full bg-white/[0.04] blur-[80px] sm:block" />
 
       <Container className="relative py-24 sm:py-32 lg:py-40">
         <motion.div
           className="max-w-4xl"
-          initial="hidden"
+          initial={prefersReducedMotion ? false : "hidden"}
           animate="visible"
           variants={heroContainer}
         >
@@ -54,6 +56,13 @@ export function HomeHero() {
               {t("home.hero.cta2")}
             </Button>
           </motion.div>
+          <motion.ul variants={heroItem} className="mt-6 flex flex-wrap items-center gap-3 text-xs text-white/65 sm:text-sm">
+            {trustPoints.map((point) => (
+              <li key={point} className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5">
+                {point}
+              </li>
+            ))}
+          </motion.ul>
           <motion.p variants={heroItem} className="mt-12 text-sm text-white/40">
             {t("home.hero.emailHint")}{" "}
             <Link href={`mailto:${site.email}`} className="text-white/70 underline-offset-4 hover:text-accent hover:underline">
