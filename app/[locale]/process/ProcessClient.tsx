@@ -33,7 +33,8 @@ export function ProcessClient() {
           <div className="space-y-6">
             {stepKeys.map((s, i) => (
               <Reveal key={s.step} delay={i * 0.05}>
-                <div className="grid gap-6 rounded-[2rem] border border-white/[0.08] bg-white/[0.02] p-8 sm:grid-cols-[88px_1fr] sm:items-start sm:p-10">
+                <div className="group relative grid gap-6 overflow-hidden rounded-[2rem] border border-white/[0.08] bg-white/[0.02] p-8 transition duration-300 hover:border-accent/25 sm:grid-cols-[88px_1fr] sm:items-start sm:p-10">
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_90%_50%,rgba(200,255,61,0.10),transparent_42%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   <div className="font-display text-sm text-accent">{s.step}</div>
                   <div>
                     <h2 className="font-display text-2xl text-white">{t(s.title)}</h2>
@@ -46,7 +47,7 @@ export function ProcessClient() {
         </Container>
       </section>
 
-      <section className="border-t border-white/[0.06] bg-surface py-16 sm:py-24">
+      <section className="border-t border-white/[0.06] bg-gradient-to-b from-surface to-background py-16 sm:py-24">
         <Container className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <Reveal className="max-w-xl">
             <h2 className="font-display text-display-lg text-white">{t("process.bottom.title")}</h2>

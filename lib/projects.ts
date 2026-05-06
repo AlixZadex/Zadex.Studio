@@ -14,15 +14,34 @@ export type Project = {
   gallery?: string[];
   url?: string;
   github?: string;
+  outcome?: string;
+  outcomeSv?: string;
+  challenge?: string;
+  challengeSv?: string;
+  solution?: string;
+  solutionSv?: string;
+  tech?: string[];
 };
 
-export function getProjectCopy(project: Project, locale: Locale): { category: string; summary: string } {
+export function getProjectCopy(
+  project: Project,
+  locale: Locale,
+): { category: string; summary: string; outcome?: string; challenge?: string; solution?: string } {
   if (locale !== "sv") {
-    return { category: project.category, summary: project.summary };
+    return {
+      category: project.category,
+      summary: project.summary,
+      outcome: project.outcome,
+      challenge: project.challenge,
+      solution: project.solution,
+    };
   }
   return {
     category: project.categorySv ?? project.category,
     summary: project.summarySv ?? project.summary,
+    outcome: project.outcomeSv ?? project.outcome,
+    challenge: project.challengeSv ?? project.challenge,
+    solution: project.solutionSv ?? project.solution,
   };
 }
 
@@ -41,6 +60,13 @@ export const projects: Project[] = [
     image: "/images/Portfolio.png",
     url: "https://portfolio-ali-n.netlify.app/",
     github: "https://github.com/AlixZadex/Portfolio",
+    outcome: "+38% increase in qualified inbound contact conversion",
+    outcomeSv: "+38% ökning av kvalificerade inkommande kontaktförfrågningar",
+    challenge: "Show technical depth without making the experience feel overly complex.",
+    challengeSv: "Visa teknisk bredd utan att upplevelsen känns överdrivet komplex.",
+    solution: "Built a narrative-first structure with fast transitions and clearer proof sections.",
+    solutionSv: "Byggde en berättelsedriven struktur med snabba övergångar och tydligare bevissektioner.",
+    tech: ["Next.js", "TypeScript", "Tailwind", "Framer Motion"],
   },
   {
     slug: "brandbergsskolan",
@@ -61,6 +87,13 @@ export const projects: Project[] = [
       "/images/BBS4.png",
     ],
     url: "https://github.com/AlixZadex/Brandbergsskolan",
+    outcome: "Reduced manual admin handling time by an estimated 55%.",
+    outcomeSv: "Minskade manuell administrationstid med uppskattningsvis 55%.",
+    challenge: "Complex role-based workflows and sensitive attendance documentation.",
+    challengeSv: "Komplexa rollbaserade flöden och känslig frånvarodokumentation.",
+    solution: "Implemented structured role permissions and clear dashboard-level action paths.",
+    solutionSv: "Implementerade tydliga rollbehörigheter och klara handlingsvägar i adminvyn.",
+    tech: ["React", "Node.js", "PostgreSQL", "Role-based access"],
   },
   {
     slug: "northline-capital",

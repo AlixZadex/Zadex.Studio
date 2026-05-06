@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, type FormEvent } from "react";
+import { useMemo, useState, type FocusEvent, type FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { ServiceSelect } from "@/components/contact/ServiceSelect";
@@ -33,6 +33,7 @@ export function ContactForm() {
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [formError, setFormError] = useState<string | null>(null);
   const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
+  const [activeField, setActiveField] = useState<string | null>(null);
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
@@ -86,7 +87,9 @@ export function ContactForm() {
   }
 
   const inputClass =
-    "w-full rounded-2xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-sm text-white placeholder:text-white/35 outline-none transition focus:border-accent/50 focus:ring-2 focus:ring-accent/20";
+    "w-full rounded-2xl border border-white/15 bg-white/[0.05] px-4 py-3 text-sm text-white placeholder:text-white/35 outline-none transition-all duration-200 focus:border-accent/70 focus:ring-2 focus:ring-accent/25";
+  const onFocusField = (e: FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => setActiveField(e.currentTarget.name);
+  const onBlurField = () => setActiveField(null);
 
   if (status === "success") {
     return (
@@ -113,7 +116,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-5" noValidate>
+    <form onSubmit={onSubmit} className="relative isolate space-y-5" noValidate>
       <AnimatePresence>
         {formError ? (
           <motion.div
@@ -140,6 +143,8 @@ export function ContactForm() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             className={inputClass}
+            onFocus={onFocusField}
+            onBlur={onBlurField}
             required
             disabled={status === "loading"}
           />
@@ -159,6 +164,8 @@ export function ContactForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className={inputClass}
+            onFocus={onFocusField}
+            onBlur={onBlurField}
             required
             disabled={status === "loading"}
           />
@@ -181,6 +188,8 @@ export function ContactForm() {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             className={inputClass}
+            onFocus={onFocusField}
+            onBlur={onBlurField}
             required
             disabled={status === "loading"}
           />
@@ -199,6 +208,8 @@ export function ContactForm() {
             value={company}
             onChange={(e) => setCompany(e.target.value)}
             className={inputClass}
+            onFocus={onFocusField}
+            onBlur={onBlurField}
             disabled={status === "loading"}
           />
           {fieldErrors.company ? (
@@ -237,6 +248,8 @@ export function ContactForm() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           className={`${inputClass} resize-none`}
+          onFocus={onFocusField}
+          onBlur={onBlurField}
           placeholder={t("contact.form.placeholder")}
           required
           disabled={status === "loading"}
@@ -248,9 +261,26 @@ export function ContactForm() {
 
       <div className="pt-2">
         <Button type="submit" variant="primary" disabled={status === "loading"} className="w-full sm:w-auto">
-          {status === "loading" ? t("contact.form.sending") : t("contact.form.submit")}
+          {status === "loading" ? (
+            <span className="inline-flex items-center gap-2">
+              <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-background/35 border-t-background" />
+              {t("contact.form.sending")}
+            </span>
+          ) : (
+            t("contact.form.submit")
+          )}
         </Button>
       </div>
+      <AnimatePresence>
+        {activeField ? (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="pointer-events-none absolute inset-0 -z-10 rounded-3xl bg-[radial-gradient(circle_at_50%_80%,rgba(200,255,61,0.08),transparent_55%)]"
+          />
+        ) : null}
+      </AnimatePresence>
     </form>
   );
 }

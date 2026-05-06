@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { useLocale } from "@/lib/i18n/LanguageContext";
@@ -30,8 +31,16 @@ export function Footer() {
       <Container className="py-16 sm:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
           <div className="max-w-sm">
-            <Link href={lp("/")} className="font-display text-xl tracking-tight text-white">
-              {site.name}
+            <Link href={lp("/")} className="inline-flex items-center gap-2 font-display text-xl tracking-tight text-white">
+              <span className="relative h-8 w-28 overflow-hidden">
+                <Image
+                  src="/images/zadex.logo.png"
+                  alt="Zadex logo"
+                  fill
+                  sizes="112px"
+                  className="object-contain scale-[2.8]"
+                />
+              </span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-muted">{t("site.description")}</p>
           </div>

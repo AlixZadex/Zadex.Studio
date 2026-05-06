@@ -15,7 +15,7 @@ type ProjectCardProps = {
 export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   const { locale, t } = useLocale();
   const lp = useLocalizedPath();
-  const { category, summary } = getProjectCopy(project, locale);
+  const { category, summary, outcome, challenge, solution } = getProjectCopy(project, locale);
   const href = project.url ?? lp("/contact");
   const isExternal = Boolean(project.url);
   const githubHref = project.github;
@@ -32,9 +32,9 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   };
 
   return (
-    <article className="group relative">
+    <article className="group relative transition-transform duration-300 hover:-translate-y-1">
       <div
-        className={`relative overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-br ${project.gradient} p-1 transition duration-500 group-hover:border-accent/25`}
+        className={`relative overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-br ${project.gradient} p-1 transition duration-500 group-hover:border-accent/25 group-hover:shadow-[0_16px_40px_rgba(0,0,0,0.35)]`}
       >
         <div
           className={`pointer-events-none absolute inset-0 bg-gradient-to-tr ${project.accent} opacity-0 transition duration-500 group-hover:opacity-100`}
@@ -101,6 +101,37 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         </div>
         <div className="relative px-6 py-6 sm:px-8 sm:py-7">
           <p className="text-sm leading-relaxed text-muted">{summary}</p>
+          {outcome ? (
+            <div className="mt-5 rounded-2xl border border-accent/20 bg-accent/10 px-4 py-3">
+              <p className="text-[11px] uppercase tracking-[0.15em] text-accent/90">Outcome</p>
+              <p className="mt-1 text-sm text-white/90">{outcome}</p>
+            </div>
+          ) : null}
+          {challenge || solution ? (
+            <div className="mt-4 grid gap-3 text-xs text-white/75 sm:grid-cols-2">
+              {challenge ? (
+                <div className="rounded-xl border border-white/10 bg-white/[0.02] px-3 py-2.5">
+                  <p className="uppercase tracking-[0.12em] text-white/45">Challenge</p>
+                  <p className="mt-1 leading-relaxed">{challenge}</p>
+                </div>
+              ) : null}
+              {solution ? (
+                <div className="rounded-xl border border-white/10 bg-white/[0.02] px-3 py-2.5">
+                  <p className="uppercase tracking-[0.12em] text-white/45">Solution</p>
+                  <p className="mt-1 leading-relaxed">{solution}</p>
+                </div>
+              ) : null}
+            </div>
+          ) : null}
+          {project.tech?.length ? (
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {project.tech.map((item) => (
+                <li key={`${project.slug}-${item}`} className="rounded-full border border-white/10 px-2.5 py-1 text-[11px] text-white/65">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          ) : null}
           <div className="mt-4 flex items-center justify-between gap-3">
             <div className="flex items-center gap-4">
               <Link

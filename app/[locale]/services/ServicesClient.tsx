@@ -93,11 +93,12 @@ export function ServicesClient() {
           <div className="grid gap-8 lg:gap-10">
             {services.map((s, i) => (
               <Reveal key={s.keys.title} delay={i * 0.04}>
-                <article className="grid gap-8 rounded-[2rem] border border-white/[0.08] bg-white/[0.02] p-8 transition duration-300 hover:border-accent/20 sm:grid-cols-[auto_1fr] sm:p-10 lg:gap-12">
+                <article className="group relative grid gap-8 overflow-hidden rounded-[2rem] border border-white/[0.08] bg-white/[0.02] p-8 transition duration-300 hover:-translate-y-0.5 hover:border-accent/25 sm:grid-cols-[auto_1fr] sm:p-10 lg:gap-12">
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_10%,rgba(200,255,61,0.12),transparent_45%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-accent/10 text-accent">
                     {s.icon}
                   </div>
-                  <div>
+                  <div className="relative">
                     <h2 className="font-display text-2xl text-white">{t(s.keys.title)}</h2>
                     <p className="mt-4 text-base leading-relaxed text-muted">{t(s.keys.description)}</p>
                     <p className="mt-6 border-l border-accent/40 pl-5 text-sm leading-relaxed text-white/80">{t(s.keys.value)}</p>
@@ -109,7 +110,7 @@ export function ServicesClient() {
         </Container>
       </section>
 
-      <section className="border-t border-white/[0.06] bg-surface py-16 sm:py-24">
+      <section className="border-t border-white/[0.06] bg-gradient-to-b from-surface to-background py-16 sm:py-24">
         <Container className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
           <Reveal className="max-w-xl">
             <SectionHeading title={t("services.bottom.title")} description={t("services.bottom.description")} />

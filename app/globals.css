@@ -37,6 +37,19 @@ textarea:focus-visible {
     text-wrap: balance;
   }
 
+  .hero-grid {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+    animation: grid-drift 24s linear infinite;
+    mask-image: radial-gradient(circle at center, black 22%, transparent 78%);
+  }
+
+  .vignette {
+    background: radial-gradient(circle at 50% 40%, transparent 25%, rgba(0, 0, 0, 0.55) 100%);
+  }
+
   .content-auto {
     content-visibility: auto;
     contain-intrinsic-size: 1px 900px;
@@ -44,5 +57,14 @@ textarea:focus-visible {
 
   .grain {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+}
+
+@keyframes grid-drift {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 64px 32px, 64px 32px;
   }
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
@@ -45,6 +46,7 @@ function MenuIcon({ open }: { open: boolean }) {
 export function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { t } = useLocale();
   const lp = useLocalizedPath();
 
@@ -68,6 +70,13 @@ export function Navbar() {
     };
   }, [open]);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const isActive = (path: string) => {
     const full = lp(path);
     if (path === "/") return pathname === full || pathname === `${full}/`;
@@ -75,14 +84,24 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/[0.06] bg-background/80 backdrop-blur-xl">
-      <Container className="flex h-16 items-center justify-between gap-6 sm:h-[4.25rem]">
+    <header
+      className={`sticky top-0 z-50 border-b transition-all duration-300 ${
+        scrolled
+          ? "border-white/[0.08] bg-background/75 shadow-[0_8px_24px_rgba(0,0,0,0.28)] backdrop-blur-2xl"
+          : "border-white/[0.06] bg-background/80 backdrop-blur-xl"
+      }`}
+    >
+      <Container className="flex h-[4.5rem] items-center justify-between gap-6 sm:h-[5rem]">
         <Link href={lp("/")} className="group flex items-center gap-2">
-          <span className="font-display text-lg tracking-tight text-white transition-colors group-hover:text-accent">
-            {site.name}
-          </span>
-          <span className="hidden rounded-full border border-white/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-widest text-muted sm:inline">
-            {t("nav.studio")}
+          <span className="relative h-10 w-36 overflow-hidden">
+            <Image
+              src="/images/zadex.logo.png"
+              alt="Zadex logo"
+              fill
+              sizes="144px"
+              className="object-contain scale-[2.8]"
+              priority
+            />
           </span>
         </Link>
 
@@ -92,9 +111,9 @@ export function Navbar() {
               key={link.href}
               href={lp(link.href)}
               aria-current={isActive(link.href) ? "page" : undefined}
-              className={`rounded-full px-3 py-2 text-sm transition-colors ${
+              className={`relative rounded-full px-3 py-2 text-sm transition-colors after:absolute after:bottom-1 after:left-3 after:h-px after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-[calc(100%-1.5rem)] ${
                 isActive(link.href)
-                  ? "bg-white/[0.06] text-white"
+                  ? "bg-white/[0.08] text-white after:w-[calc(100%-1.5rem)]"
                   : "text-muted hover:text-white"
               }`}
             >
