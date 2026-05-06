@@ -1,5 +1,7 @@
+"use client";
+
 import Link from "next/link";
-import type { ReactNode } from "react";
+import { useState, type MouseEvent, type ReactNode } from "react";
 
 type ButtonBase = {
   children: ReactNode;
@@ -32,6 +34,18 @@ const variants = {
 export function Button(props: ButtonProps & { variant?: keyof typeof variants }) {
   const { variant = "primary", className = "", children } = props;
   const styles = `${variants[variant]} ${className}`;
+  const [magnet, setMagnet] = useState({ x: 0, y: 0 });
+
+  const onMove = (e: MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left - rect.width / 2) * 0.12;
+    const y = (e.clientY - rect.top - rect.height / 2) * 0.2;
+    setMagnet({ x, y });
+  };
+  const onLeave = () => setMagnet({ x: 0, y: 0 });
+  const magneticStyle = {
+    transform: `translate3d(${magnet.x}px, ${magnet.y}px, 0)`,
+  };
 
   if ("href" in props && props.href) {
     if (props.external) {
@@ -39,6 +53,9 @@ export function Button(props: ButtonProps & { variant?: keyof typeof variants })
         <a
           href={props.href}
           className={styles}
+          style={magneticStyle}
+          onMouseMove={onMove}
+          onMouseLeave={onLeave}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -47,7 +64,7 @@ export function Button(props: ButtonProps & { variant?: keyof typeof variants })
       );
     }
     return (
-      <Link href={props.href} className={styles}>
+      <Link href={props.href} className={styles} style={magneticStyle} onMouseMove={onMove} onMouseLeave={onLeave}>
         {children}
       </Link>
     );
@@ -55,7 +72,15 @@ export function Button(props: ButtonProps & { variant?: keyof typeof variants })
 
   const { type = "button", onClick, disabled } = props as ButtonAsButton;
   return (
-    <button type={type} onClick={onClick} disabled={disabled} className={styles}>
+    <button
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+      className={styles}
+      style={magneticStyle}
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
+    >
       {children}
     </button>
   );

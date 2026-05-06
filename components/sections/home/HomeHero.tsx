@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { motion, useMotionTemplate, useMotionValue, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -39,14 +39,27 @@ export function HomeHero() {
   const rightParallaxScale = useTransform(scrollYProgress, [0, 1], [1, 0.965]);
   const rightParallaxOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.82]);
   const leftParallaxY = useTransform(scrollYProgress, [0, 1], [0, -20]);
+  const pointerX = useMotionValue(50);
+  const pointerY = useMotionValue(40);
+  const pointerLight = useMotionTemplate`radial-gradient(520px circle at ${pointerX}% ${pointerY}%, rgba(200,255,61,0.14), transparent 60%)`;
 
   return (
-    <section ref={heroRef} className="relative overflow-hidden border-b border-white/[0.06]">
+    <section
+      ref={heroRef}
+      className="relative overflow-hidden border-b border-white/[0.06]"
+      onMouseMove={(e) => {
+        if (prefersReducedMotion) return;
+        const rect = e.currentTarget.getBoundingClientRect();
+        pointerX.set(((e.clientX - rect.left) / rect.width) * 100);
+        pointerY.set(((e.clientY - rect.top) / rect.height) * 100);
+      }}
+    >
       <div className="pointer-events-none absolute inset-0 opacity-60 hero-grid" />
       <div className="pointer-events-none absolute inset-0 vignette" />
       <div className="pointer-events-none absolute -left-1/3 top-0 hidden h-[520px] w-[520px] rounded-full bg-accent/10 blur-[100px] sm:block" />
       <div className="pointer-events-none absolute -right-1/4 bottom-0 hidden h-[420px] w-[420px] rounded-full bg-white/[0.04] blur-[80px] sm:block" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_30%,rgba(200,255,61,0.12),transparent_40%)]" />
+      <motion.div className="pointer-events-none absolute inset-0 hidden lg:block" style={prefersReducedMotion ? undefined : { background: pointerLight }} />
 
       <Container className="relative flex min-h-[82svh] items-center py-16 sm:py-20 lg:py-24">
         <motion.div

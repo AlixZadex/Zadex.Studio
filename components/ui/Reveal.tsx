@@ -15,10 +15,11 @@ export function Reveal({ children, className = "", delay = 0 }: RevealProps) {
   const isInView = useInView(ref, { once: true, margin: "-10% 0px" });
 
   const variants: Variants = {
-    hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 24 },
+    hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 24, filter: prefersReducedMotion ? "blur(0px)" : "blur(6px)" },
     visible: {
       opacity: 1,
       y: 0,
+      filter: "blur(0px)",
       transition: { duration: prefersReducedMotion ? 0 : 0.55, ease: [0.22, 1, 0.36, 1], delay },
     },
   };
