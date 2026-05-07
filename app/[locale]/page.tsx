@@ -3,7 +3,6 @@ import { CtaBanner } from "@/components/sections/home/CtaBanner";
 import { FeaturedProjects } from "@/components/sections/home/FeaturedProjects";
 import { HomeHero } from "@/components/sections/home/HomeHero";
 import { ServicesIntro } from "@/components/sections/home/ServicesIntro";
-import { Testimonials } from "@/components/sections/home/Testimonials";
 import { WhyZadex } from "@/components/sections/home/WhyZadex";
 import { isAppLocale } from "@/lib/i18n/config";
 import type { Locale } from "@/lib/i18n/messages";
@@ -31,9 +30,6 @@ export default function HomePage() {
       </div>
       <div className="content-auto">
         <FeaturedProjects />
-      </div>
-      <div className="content-auto">
-        <Testimonials />
       </div>
       <div className="content-auto">
         <CtaBanner />
