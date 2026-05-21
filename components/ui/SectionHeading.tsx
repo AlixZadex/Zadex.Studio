@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+﻿import type { ReactNode } from "react";
 
 type SectionHeadingProps = {
   eyebrow?: string;
@@ -18,14 +18,16 @@ export function SectionHeading({
   return (
     <div className={`max-w-3xl ${alignClass}`}>
       {eyebrow ? (
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-accent">
           {eyebrow}
         </p>
       ) : null}
-      <h2 className="font-display text-display-lg text-balance text-white">{title}</h2>
+      <h2 className="font-display text-display-lg text-balance text-slate-950">{title}</h2>
       {description ? (
         <div className="mt-5 text-base leading-relaxed text-muted sm:text-lg">{description}</div>
       ) : null}
     </div>
   );
 }
+
+

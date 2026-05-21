@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { usePathname } from "next/navigation";
@@ -27,3 +27,5 @@ export function PageTransition({ children }: { children: ReactNode }) {
     </AnimatePresence>
   );
 }
+
+

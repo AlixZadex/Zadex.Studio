@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
@@ -41,7 +41,7 @@ export function FeaturedProjects() {
 
         <Reveal className="mt-10 text-sm text-muted">
           {t("featured.hint")}{" "}
-          <Link href={lp("/contact")} className="text-white underline-offset-4 hover:text-accent hover:underline">
+          <Link href={lp("/contact")} className="text-slate-950 underline-offset-4 hover:text-accent hover:underline">
             {t("featured.hintLink")}
           </Link>
           .
@@ -50,3 +50,5 @@ export function FeaturedProjects() {
     </section>
   );
 }
+
+

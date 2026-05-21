@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
@@ -15,7 +15,8 @@ export function Testimonials() {
   const { t } = useLocale();
 
   return (
-    <section className="border-t border-white/[0.06] bg-gradient-to-b from-transparent to-white/[0.02] py-20 sm:py-28">
+    <section className="relative overflow-hidden border-t border-slate-950/[0.06] bg-gradient-to-b from-transparent to-white/[0.025] py-20 sm:py-28">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(155,124,255,0.12),transparent_42%)]" />
       <Container>
         <Reveal>
           <SectionHeading
@@ -26,13 +27,18 @@ export function Testimonials() {
           />
         </Reveal>
 
-        <div className="mx-auto mt-14 grid max-w-5xl gap-6 md:grid-cols-2">
+        <div className="relative mx-auto mt-14 grid max-w-5xl gap-6 md:grid-cols-2">
           {quoteKeys.map((q, i) => (
             <Reveal key={q.name} delay={i * 0.08}>
-              <figure className="h-full rounded-3xl border border-white/[0.08] bg-white/[0.02] p-8 sm:p-10">
-                <blockquote className="text-base leading-relaxed text-white/90 sm:text-lg">“{t(q.quote)}”</blockquote>
+              <figure className="h-full rounded-[1.75rem] premium-card p-8 sm:p-10">
+                <div className="mb-8 h-px w-full bg-gradient-to-r from-cyan-200/40 via-violet-300/20 to-transparent" />
+                <blockquote className="text-base leading-relaxed text-slate-950/90 sm:text-lg">
+                  <span aria-hidden>&ldquo;</span>
+                  {t(q.quote)}
+                  <span aria-hidden>&rdquo;</span>
+                </blockquote>
                 <figcaption className="mt-8 text-sm">
-                  <p className="font-medium text-white">{t(q.name)}</p>
+                  <p className="font-medium text-slate-950">{t(q.name)}</p>
                   <p className="mt-1 text-muted">{t(q.role)}</p>
                 </figcaption>
               </figure>
@@ -43,3 +49,5 @@ export function Testimonials() {
     </section>
   );
 }
+
+

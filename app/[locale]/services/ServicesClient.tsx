@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
@@ -10,71 +10,14 @@ import { useLocalizedPath } from "@/lib/i18n/useLocalizedPath";
 import type { MessageKey } from "@/lib/i18n/messages";
 
 const services = [
-  {
-    keys: {
-      title: "services.s1.title",
-      description: "services.s1.description",
-      value: "services.s1.value",
-    } as const satisfies { title: MessageKey; description: MessageKey; value: MessageKey },
-    icon: (
-      <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
-        <path strokeWidth="1.5" d="M4 7h16M4 12h10M4 17h16" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
-    keys: {
-      title: "services.s2.title",
-      description: "services.s2.description",
-      value: "services.s2.value",
-    } as const,
-    icon: (
-      <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
-        <path strokeWidth="1.5" d="M7 17V7h10v10H7Z" strokeLinejoin="round" />
-        <path strokeWidth="1.5" d="M4 20h16" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
-    keys: {
-      title: "services.s3.title",
-      description: "services.s3.description",
-      value: "services.s3.value",
-    } as const,
-    icon: (
-      <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
-        <path strokeWidth="1.5" d="M12 3v3M5.6 5.6l2.1 2.1M3 12h3M5.6 18.4l2.1-2.1M12 18v3M18.4 18.4l-2.1-2.1M21 12h-3M18.4 5.6l-2.1 2.1" strokeLinecap="round" />
-        <path strokeWidth="1.5" d="M12 8a4 4 0 1 0 4 4" />
-      </svg>
-    ),
-  },
-  {
-    keys: {
-      title: "services.s4.title",
-      description: "services.s4.description",
-      value: "services.s4.value",
-    } as const,
-    icon: (
-      <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
-        <path strokeWidth="1.5" d="M8 9l-3 3 3 3M16 15l3-3-3-3" strokeLinecap="round" strokeLinejoin="round" />
-        <path strokeWidth="1.5" d="M13.5 6l-3 12" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
-    keys: {
-      title: "services.s5.title",
-      description: "services.s5.description",
-      value: "services.s5.value",
-    } as const,
-    icon: (
-      <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
-        <path strokeWidth="1.5" d="M4 5h16v14H4z" strokeLinejoin="round" />
-        <path strokeWidth="1.5" d="M8 9h8M8 13h5" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-];
+  { title: "services.s1.title", description: "services.s1.description", value: "services.s1.value", token: "AI" },
+  { title: "services.s2.title", description: "services.s2.description", value: "services.s2.value", token: "AUTO" },
+  { title: "services.s3.title", description: "services.s3.description", value: "services.s3.value", token: "BOT" },
+  { title: "services.s4.title", description: "services.s4.description", value: "services.s4.value", token: "LP" },
+  { title: "services.s5.title", description: "services.s5.description", value: "services.s5.value", token: "OPS" },
+  { title: "services.s6.title", description: "services.s6.description", value: "services.s6.value", token: "CMS" },
+  { title: "services.s7.title", description: "services.s7.description", value: "services.s7.value", token: "SaaS" },
+] as const satisfies readonly { title: MessageKey; description: MessageKey; value: MessageKey; token: string }[];
 
 export function ServicesClient() {
   const { t } = useLocale();
@@ -90,18 +33,21 @@ export function ServicesClient() {
 
       <section className="py-16 sm:py-24">
         <Container>
-          <div className="grid gap-8 lg:gap-10">
+          <div className="grid gap-5 md:grid-cols-2">
             {services.map((s, i) => (
-              <Reveal key={s.keys.title} delay={i * 0.04}>
-                <article className="group relative grid gap-8 overflow-hidden rounded-[2rem] border border-white/[0.08] bg-white/[0.02] p-8 transition duration-300 hover:-translate-y-0.5 hover:border-accent/25 sm:grid-cols-[auto_1fr] sm:p-10 lg:gap-12">
-                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_10%,rgba(200,255,61,0.12),transparent_45%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-accent/10 text-accent">
-                    {s.icon}
-                  </div>
-                  <div className="relative">
-                    <h2 className="font-display text-2xl text-white">{t(s.keys.title)}</h2>
-                    <p className="mt-4 text-base leading-relaxed text-muted">{t(s.keys.description)}</p>
-                    <p className="mt-6 border-l border-accent/40 pl-5 text-sm leading-relaxed text-white/80">{t(s.keys.value)}</p>
+              <Reveal key={s.title} delay={i * 0.04}>
+                <article className="group relative h-full overflow-hidden rounded-[2rem] border border-slate-950/[0.09] bg-white/70 p-7 backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:border-cyan-200/25 sm:p-8">
+                  <div className="edge-light absolute left-8 right-8 top-0 h-px opacity-0 transition group-hover:opacity-100" />
+                  <div className="pointer-events-none absolute -right-20 -top-20 h-52 w-52 rounded-full bg-cyan-300/10 blur-3xl transition group-hover:bg-violet-400/14" />
+                  <div className="relative flex items-start gap-5">
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-slate-950/10 bg-background/75 text-xs font-semibold text-accent shadow-[0_0_36px_rgba(110,231,255,0.12)]">
+                      {s.token}
+                    </div>
+                    <div>
+                      <h2 className="font-display text-2xl text-slate-950">{t(s.title)}</h2>
+                      <p className="mt-4 text-base leading-relaxed text-muted">{t(s.description)}</p>
+                      <p className="mt-6 border-l border-cyan-200/30 pl-5 text-sm leading-relaxed text-slate-950/82">{t(s.value)}</p>
+                    </div>
                   </div>
                 </article>
               </Reveal>
@@ -110,7 +56,7 @@ export function ServicesClient() {
         </Container>
       </section>
 
-      <section className="border-t border-white/[0.06] bg-gradient-to-b from-surface to-background py-16 sm:py-24">
+      <section className="border-t border-slate-950/[0.06] bg-gradient-to-b from-surface to-background py-16 sm:py-24">
         <Container className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
           <Reveal className="max-w-xl">
             <SectionHeading title={t("services.bottom.title")} description={t("services.bottom.description")} />
@@ -123,3 +69,5 @@ export function ServicesClient() {
     </>
   );
 }
+
+

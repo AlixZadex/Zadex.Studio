@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useMemo, useState, type FocusEvent, type FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -87,7 +87,7 @@ export function ContactForm() {
   }
 
   const inputClass =
-    "w-full rounded-2xl border border-white/15 bg-white/[0.05] px-4 py-3 text-sm text-white placeholder:text-white/35 outline-none transition-all duration-200 focus:border-accent/70 focus:ring-2 focus:ring-accent/25";
+    "w-full rounded-2xl border border-slate-950/15 bg-white/80 px-4 py-3 text-sm text-slate-950 placeholder:text-slate-950/35 outline-none transition-all duration-200 focus:border-accent/70 focus:ring-2 focus:ring-accent/25";
   const onFocusField = (e: FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => setActiveField(e.currentTarget.name);
   const onBlurField = () => setActiveField(null);
 
@@ -104,7 +104,7 @@ export function ContactForm() {
             <path strokeWidth="2" d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
-        <h2 className="font-display text-2xl text-white">{t("contact.form.successTitle")}</h2>
+        <h2 className="font-display text-2xl text-slate-950">{t("contact.form.successTitle")}</h2>
         <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-muted">{t("contact.form.successBody")}</p>
         <div className="mt-8">
           <Button type="button" variant="secondary" onClick={() => setStatus("idle")}>
@@ -123,7 +123,7 @@ export function ContactForm() {
             initial={{ opacity: 0, y: -6 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            className="rounded-2xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-100"
+            className="rounded-2xl border border-red-500/25 bg-red-50 px-4 py-3 text-sm text-red-700"
             role="alert"
           >
             {formError}
@@ -133,7 +133,7 @@ export function ContactForm() {
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="mb-2 block text-xs font-medium uppercase tracking-widest text-white/50">
+          <label htmlFor="name" className="mb-2 block text-xs font-medium uppercase tracking-widest text-slate-950/50">
             {t("contact.form.name")}
           </label>
           <input
@@ -149,11 +149,11 @@ export function ContactForm() {
             disabled={status === "loading"}
           />
           {fieldErrors.name ? (
-            <p className="mt-1.5 text-xs text-red-300">{fieldErrors.name}</p>
+            <p className="mt-1.5 text-xs text-red-600">{fieldErrors.name}</p>
           ) : null}
         </div>
         <div>
-          <label htmlFor="email" className="mb-2 block text-xs font-medium uppercase tracking-widest text-white/50">
+          <label htmlFor="email" className="mb-2 block text-xs font-medium uppercase tracking-widest text-slate-950/50">
             {t("contact.form.email")}
           </label>
           <input
@@ -170,14 +170,14 @@ export function ContactForm() {
             disabled={status === "loading"}
           />
           {fieldErrors.email ? (
-            <p className="mt-1.5 text-xs text-red-300">{fieldErrors.email}</p>
+            <p className="mt-1.5 text-xs text-red-600">{fieldErrors.email}</p>
           ) : null}
         </div>
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="phone" className="mb-2 block text-xs font-medium uppercase tracking-widest text-white/50">
+          <label htmlFor="phone" className="mb-2 block text-xs font-medium uppercase tracking-widest text-slate-950/50">
             {t("contact.form.phone")}
           </label>
           <input
@@ -194,11 +194,11 @@ export function ContactForm() {
             disabled={status === "loading"}
           />
           {fieldErrors.phone ? (
-            <p className="mt-1.5 text-xs text-red-300">{fieldErrors.phone}</p>
+            <p className="mt-1.5 text-xs text-red-600">{fieldErrors.phone}</p>
           ) : null}
         </div>
         <div>
-          <label htmlFor="company" className="mb-2 block text-xs font-medium uppercase tracking-widest text-white/50">
+          <label htmlFor="company" className="mb-2 block text-xs font-medium uppercase tracking-widest text-slate-950/50">
             {t("contact.form.company")}
           </label>
           <input
@@ -213,13 +213,13 @@ export function ContactForm() {
             disabled={status === "loading"}
           />
           {fieldErrors.company ? (
-            <p className="mt-1.5 text-xs text-red-300">{fieldErrors.company}</p>
+            <p className="mt-1.5 text-xs text-red-600">{fieldErrors.company}</p>
           ) : null}
         </div>
       </div>
 
       <div>
-        <label id="service-label" htmlFor="service" className="mb-2 block text-xs font-medium uppercase tracking-widest text-white/50">
+        <label id="service-label" htmlFor="service" className="mb-2 block text-xs font-medium uppercase tracking-widest text-slate-950/50">
           {t("contact.form.service")}
         </label>
         <ServiceSelect
@@ -233,12 +233,12 @@ export function ContactForm() {
           hasError={Boolean(fieldErrors.service)}
         />
         {fieldErrors.service ? (
-          <p className="mt-1.5 text-xs text-red-300">{fieldErrors.service}</p>
+          <p id="service-error" className="mt-1.5 text-xs text-red-600">{fieldErrors.service}</p>
         ) : null}
       </div>
 
       <div>
-        <label htmlFor="message" className="mb-2 block text-xs font-medium uppercase tracking-widest text-white/50">
+        <label htmlFor="message" className="mb-2 block text-xs font-medium uppercase tracking-widest text-slate-950/50">
           {t("contact.form.message")}
         </label>
         <textarea
@@ -255,7 +255,7 @@ export function ContactForm() {
           disabled={status === "loading"}
         />
         {fieldErrors.message ? (
-          <p className="mt-1.5 text-xs text-red-300">{fieldErrors.message}</p>
+          <p className="mt-1.5 text-xs text-red-600">{fieldErrors.message}</p>
         ) : null}
       </div>
 
@@ -277,10 +277,12 @@ export function ContactForm() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="pointer-events-none absolute inset-0 -z-10 rounded-3xl bg-[radial-gradient(circle_at_50%_80%,rgba(200,255,61,0.08),transparent_55%)]"
+            className="pointer-events-none absolute inset-0 -z-10 rounded-3xl bg-[radial-gradient(circle_at_50%_80%,rgba(110,231,255,0.09),transparent_55%)]"
           />
         ) : null}
       </AnimatePresence>
     </form>
   );
 }
+
+

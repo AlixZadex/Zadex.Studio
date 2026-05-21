@@ -1,19 +1,20 @@
 import type { Locale } from "@/lib/i18n/messages";
 
+export type ProjectMockup = "portfolio" | "agency" | "restaurant" | "fitness";
+
 export type Project = {
   slug: string;
   name: string;
   category: string;
-  /** Swedish category label when locale is `sv`. */
   categorySv?: string;
   summary: string;
   summarySv?: string;
   gradient: string;
   accent: string;
   image?: string;
-  gallery?: string[];
-  url?: string;
-  github?: string;
+  mockup: ProjectMockup;
+  mockupLabel: string;
+  mockupLabelSv?: string;
   outcome?: string;
   outcomeSv?: string;
   challenge?: string;
@@ -26,19 +27,29 @@ export type Project = {
 export function getProjectCopy(
   project: Project,
   locale: Locale,
-): { category: string; summary: string; outcome?: string; challenge?: string; solution?: string } {
+): {
+  category: string;
+  summary: string;
+  mockupLabel: string;
+  outcome?: string;
+  challenge?: string;
+  solution?: string;
+} {
   if (locale !== "sv") {
     return {
       category: project.category,
       summary: project.summary,
+      mockupLabel: project.mockupLabel,
       outcome: project.outcome,
       challenge: project.challenge,
       solution: project.solution,
     };
   }
+
   return {
     category: project.categorySv ?? project.category,
     summary: project.summarySv ?? project.summary,
+    mockupLabel: project.mockupLabelSv ?? project.mockupLabel,
     outcome: project.outcomeSv ?? project.outcome,
     challenge: project.challengeSv ?? project.challenge,
     solution: project.solutionSv ?? project.solution,
@@ -47,124 +58,95 @@ export function getProjectCopy(
 
 export const projects: Project[] = [
   {
-    slug: "ali-nekzad-portfolio",
-    name: "Ali Nekzad Portfolio",
-    category: "Portfolio",
-    categorySv: "Portfolio",
+    slug: "portfolio",
+    name: "Portfolio",
+    category: "Personal portfolio",
+    categorySv: "Personlig portfolio",
+    image: "/images/project-portfolio.png",
+    mockup: "portfolio",
+    mockupLabel: "Creative developer portfolio",
+    mockupLabelSv: "Kreativ portfolio för utvecklare",
     summary:
-      "A personal portfolio focused on clear storytelling, modern frontend polish, and strong presentation of projects and technical profile.",
+      "A polished personal portfolio with a confident hero, about section, skills, selected work, and a direct contact path.",
     summarySv:
-      "En personlig portfolio med tydlig storytelling, modern frontend och tydlig presentation av projekt och teknisk profil.",
-    gradient: "from-slate-950 via-blue-950/40 to-black",
-    accent: "from-cyan-400/20 to-transparent",
-    image: "/images/Portfolio.png",
-    url: "https://portfolio-ali-n.netlify.app/",
-    github: "https://github.com/AlixZadex/Portfolio",
-    outcome: "+38% increase in qualified inbound contact conversion",
-    outcomeSv: "+38% ökning av kvalificerade inkommande kontaktförfrågningar",
-    challenge: "Show technical depth without making the experience feel overly complex.",
-    challengeSv: "Visa teknisk bredd utan att upplevelsen känns överdrivet komplex.",
-    solution: "Built a narrative-first structure with fast transitions and clearer proof sections.",
-    solutionSv: "Byggde en berättelsedriven struktur med snabba övergångar och tydligare bevissektioner.",
+      "En polerad personlig portfolio med stark hero, om-sektion, skills, utvalda projekt och tydlig väg till kontakt.",
+    gradient: "from-sky-100 via-white to-blue-100",
+    accent: "from-sky-300/28 via-blue-300/16 to-transparent",
+    outcome: "A professional first impression that makes experience, personality, and project quality easy to scan.",
+    outcomeSv: "Ett professionellt första intryck där erfarenhet, personlighet och projektkvalitet blir lätt att ta in.",
+    challenge: "The client needed to stand out creatively without making the site feel busy or hard to navigate.",
+    challengeSv: "Kunden behövde sticka ut kreativt utan att sidan kändes rörig eller svår att navigera.",
+    solution: "Built a clean one-page portfolio with soft gradients, smooth scroll sections, and subtle motion.",
+    solutionSv: "Byggde en ren one-page portfolio med mjuka gradienter, tydliga sektioner och subtil rörelse.",
     tech: ["Next.js", "TypeScript", "Tailwind", "Framer Motion"],
   },
   {
-    slug: "brandbergsskolan",
-    name: "Brandbergsskolan",
-    category: "School Administration",
-    categorySv: "Skoladministration",
+    slug: "flow-agency",
+    name: "Flow Agency",
+    category: "Company landing page",
+    categorySv: "Företagslandning",
+    image: "/images/project-flow-agency.png",
+    mockup: "agency",
+    mockupLabel: "Startup agency landing page",
+    mockupLabelSv: "Modern landningssida för företag",
     summary:
-      "A complete absence management system for school staff with role-based workflows, attachment handling, and a practical admin dashboard.",
+      "A modern company landing page with services, testimonials, pricing, FAQ, and strong conversion-focused CTA sections.",
     summarySv:
-      "Ett komplett frånvarosystem för skolpersonal med rollstyrda flöden, bilagor och en praktisk administratörsvy.",
-    gradient: "from-slate-950 via-blue-950/40 to-black",
-    accent: "from-cyan-400/20 to-transparent",
-    image: "/images/BBS2.png",
-    gallery: [
-      "/images/BBS1 (2).png",
-      "/images/BBS2.png",
-      "/images/BBS3.png",
-      "/images/BBS4.png",
-    ],
-    url: "https://github.com/AlixZadex/Brandbergsskolan",
-    outcome: "Reduced manual admin handling time by an estimated 55%.",
-    outcomeSv: "Minskade manuell administrationstid med uppskattningsvis 55%.",
-    challenge: "Complex role-based workflows and sensitive attendance documentation.",
-    challengeSv: "Komplexa rollbaserade flöden och känslig frånvarodokumentation.",
-    solution: "Implemented structured role permissions and clear dashboard-level action paths.",
-    solutionSv: "Implementerade tydliga rollbehörigheter och klara handlingsvägar i adminvyn.",
-    tech: ["React", "Node.js", "PostgreSQL", "Role-based access"],
+      "En modern företagslandning med tjänster, testimonials, priser, FAQ och tydliga sektioner för konvertering.",
+    gradient: "from-indigo-100 via-white to-violet-100",
+    accent: "from-indigo-300/24 via-violet-300/16 to-transparent",
+    outcome: "Clearer positioning and a page structure ready for paid traffic, sales calls, and lead capture.",
+    outcomeSv: "Tydligare positionering och en sidstruktur redo för trafik, säljsamtal och leadgenerering.",
+    challenge: "The offer needed to feel premium and simple even with several services and pricing options.",
+    challengeSv: "Erbjudandet behövde kännas premium och enkelt trots flera tjänster och prisnivåer.",
+    solution: "Designed a minimal SaaS-style page with strong hierarchy, proof blocks, and frictionless CTAs.",
+    solutionSv: "Designade en minimal SaaS-inspirerad sida med stark hierarki, proof-block och friktionsfria CTA:er.",
+    tech: ["Next.js", "Landing page", "SEO", "Analytics"],
   },
   {
-    slug: "northline-capital",
-    name: "Northline Capital",
-    category: "Finance",
-    categorySv: "Finans",
+    slug: "sora-sushi",
+    name: "Sora Sushi",
+    category: "Restaurant website",
+    categorySv: "Restaurangwebb",
+    image: "/images/project-sora-sushi.png",
+    mockup: "restaurant",
+    mockupLabel: "Elegant restaurant experience",
+    mockupLabelSv: "Elegant restaurangupplevelse",
     summary:
-      "A refined institutional site with clear fund storytelling, compliance-aware structure, and performance-led UX for institutional audiences.",
+      "A clean restaurant website with food highlights, menu sections, reservation flow, reviews, and an editorial gallery.",
     summarySv:
-      "En förfinad institutionell webbplats med tydlig fondberättelse, struktur med regelefterlevnad och prestandadriven UX för institutionella målgrupper.",
-    gradient: "from-slate-900 via-zinc-900 to-black",
-    accent: "from-emerald-400/20 to-transparent",
+      "En ren restaurangwebb med matpresentation, meny, bokningsflöde, kundomdömen och en elegant bildkänsla.",
+    gradient: "from-rose-100 via-white to-red-100",
+    accent: "from-rose-300/22 via-red-300/12 to-transparent",
+    outcome: "A warmer brand experience that makes the food, location, and reservation path feel premium.",
+    outcomeSv: "En varmare varumärkesupplevelse där maten, platsen och bokningen känns mer premium.",
+    challenge: "The restaurant needed an elegant site that could sell atmosphere without becoming slow or image-heavy.",
+    challengeSv: "Restaurangen behövde en elegant sida som säljer känsla utan att bli långsam eller bildtung.",
+    solution: "Created a light editorial layout with menu cards, reservation focus, reviews, and restrained red accents.",
+    solutionSv: "Skapade en ljus redaktionell layout med menykort, bokningsfokus, recensioner och återhållna röda accenter.",
+    tech: ["Next.js", "Reservations", "CMS-ready", "Responsive"],
   },
   {
-    slug: "atelier-noir",
-    name: "Atelier Noir",
-    category: "Retail",
-    categorySv: "Detaljhandel",
+    slug: "atlas-performance",
+    name: "Atlas Performance",
+    category: "Fitness website",
+    categorySv: "Fitnesswebb",
+    image: "/images/project-atlas-performance.png",
+    mockup: "fitness",
+    mockupLabel: "Premium trainer landing page",
+    mockupLabelSv: "Premiumsida för tränare",
     summary:
-      "Editorial e-commerce experience with immersive product storytelling, fast browsing, and a checkout flow tuned for conversion.",
+      "A luxury-clean fitness landing page with transformations, trainer profile, memberships, booking, and client proof.",
     summarySv:
-      "Redaktionell e-handelsupplevelse med djup produktberättelse, snabb navigering och kassaflöde optimerat för konvertering.",
-    gradient: "from-neutral-900 via-stone-950 to-black",
-    accent: "from-amber-400/20 to-transparent",
-  },
-  {
-    slug: "pulse-health",
-    name: "Pulse Health",
-    category: "Healthcare",
-    categorySv: "Hälsovård",
-    summary:
-      "Patient-first marketing site with accessible typography, trust-building content architecture, and localized scheduling journeys.",
-    summarySv:
-      "Marknadssajt med patienten i fokus, tillgänglig typografi, innehållsarkitektur som bygger förtroende och lokala bokningsflöden.",
-    gradient: "from-slate-950 via-blue-950/40 to-black",
-    accent: "from-sky-400/20 to-transparent",
-  },
-  {
-    slug: "vertex-logistics",
-    name: "Vertex Logistics",
-    category: "Logistics",
-    categorySv: "Logistik",
-    summary:
-      "Operations-focused web presence with service clarity, interactive route highlights, and lead capture tuned for B2B procurement teams.",
-    summarySv:
-      "Driftsfokuserad webbnärvaro med tydliga tjänster, interaktiva ruttinslag och lead-insamling för B2B-upphandling.",
-    gradient: "from-zinc-900 via-neutral-950 to-black",
-    accent: "from-orange-400/20 to-transparent",
-  },
-  {
-    slug: "studio-lumen",
-    name: "Studio Lumen",
-    category: "Creative",
-    categorySv: "Kreativt",
-    summary:
-      "Portfolio platform for a production house—cinematic motion, case-study modularity, and press-ready media presentation.",
-    summarySv:
-      "Plattform för produktionsbolag—filmisk rörelse, modulära case och mediepresentation redo för press.",
-    gradient: "from-purple-950/60 via-zinc-950 to-black",
-    accent: "from-fuchsia-400/20 to-transparent",
-  },
-  {
-    slug: "harbor-law",
-    name: "Harbor Law",
-    category: "Legal",
-    categorySv: "Juridik",
-    summary:
-      "Premium law firm website with disciplined information hierarchy, secure intake touchpoints, and polished partner profiles.",
-    summarySv:
-      "Premiumwebb för advokatbyrå med tydlig informationshierarki, säkra intagspunkter och genomarbetade partnerprofiler.",
-    gradient: "from-slate-950 via-slate-900 to-black",
-    accent: "from-indigo-400/20 to-transparent",
+      "En lyxigt ren fitness-sida med transformationer, tränarprofil, medlemskap, bokning och kundbevis.",
+    gradient: "from-orange-100 via-white to-amber-100",
+    accent: "from-orange-300/24 via-amber-300/12 to-transparent",
+    outcome: "A stronger sales page that makes coaching plans feel structured, credible, and easy to book.",
+    outcomeSv: "En starkare säljsida där träningsupplägg känns strukturerade, trovärdiga och enkla att boka.",
+    challenge: "The brand needed energy and confidence without the typical loud gym aesthetic.",
+    challengeSv: "Varumärket behövde energi och självförtroende utan den vanliga högljudda gymkänslan.",
+    solution: "Built a bright performance-led layout with orange accents, comparison cards, pricing, and booking CTAs.",
+    solutionSv: "Byggde en ljus prestationsdriven layout med orange accenter, jämförelsekort, priser och bokningsknappar.",
+    tech: ["Next.js", "Booking flow", "Pricing", "Motion"],
   },
 ];

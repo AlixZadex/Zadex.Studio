@@ -1,4 +1,4 @@
-import type { MetadataRoute } from "next";
+﻿import type { MetadataRoute } from "next";
 import { locales } from "@/lib/i18n/config";
 
 const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://zadex.se";
@@ -20,3 +20,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
   return entries;
 }
+
+

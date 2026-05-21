@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, useInView, useReducedMotion, type Variants } from "framer-motion";
 import { useRef, type ReactNode } from "react";
@@ -36,3 +36,5 @@ export function Reveal({ children, className = "", delay = 0 }: RevealProps) {
     </motion.div>
   );
 }
+
+

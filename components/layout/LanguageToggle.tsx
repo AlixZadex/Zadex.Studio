@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -20,14 +20,14 @@ export function LanguageToggle({ className = "" }: { className?: string }) {
 
   return (
     <div
-      className={`inline-flex items-center rounded-full border border-white/10 bg-black/20 p-0.5 ${className}`}
+      className={`inline-flex items-center rounded-full border border-slate-950/10 bg-white/75 p-0.5 shadow-[0_10px_28px_rgba(15,23,42,0.08)] ${className}`}
       role="group"
       aria-label={t("lang.switch")}
     >
       <Link
         href={enHref}
         className={`rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-widest transition ${
-          pathname.startsWith("/en") ? "bg-white/[0.12] text-white" : "text-muted hover:text-white"
+          pathname.startsWith("/en") ? "bg-slate-950/[0.08] text-slate-950" : "text-muted hover:text-slate-950"
         }`}
         hrefLang="en"
       >
@@ -36,7 +36,7 @@ export function LanguageToggle({ className = "" }: { className?: string }) {
       <Link
         href={svHref}
         className={`rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-widest transition ${
-          pathname.startsWith("/sv") ? "bg-white/[0.12] text-white" : "text-muted hover:text-white"
+          pathname.startsWith("/sv") ? "bg-slate-950/[0.08] text-slate-950" : "text-muted hover:text-slate-950"
         }`}
         hrefLang="sv"
       >
@@ -45,3 +45,5 @@ export function LanguageToggle({ className = "" }: { className?: string }) {
     </div>
   );
 }
+
+

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { ContactClient } from "./ContactClient";
 import { isAppLocale } from "@/lib/i18n/config";
 import type { Locale } from "@/lib/i18n/messages";
@@ -17,3 +17,5 @@ export async function generateMetadata({
 export default function ContactPage() {
   return <ContactClient />;
 }
+
+

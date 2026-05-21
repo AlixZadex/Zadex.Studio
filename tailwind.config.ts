@@ -9,13 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#050505",
-        surface: "#0c0c0c",
-        border: "rgba(255, 255, 255, 0.08)",
-        muted: "#a3a3a3",
+        background: "#f8fafc",
+        surface: "#ffffff",
+        panel: "#f1f5f9",
+        border: "rgba(15, 23, 42, 0.10)",
+        muted: "#526173",
         accent: {
-          DEFAULT: "#c8ff3d",
-          dim: "rgba(200, 255, 61, 0.12)",
+          DEFAULT: "#0084ff",
+          dim: "rgba(0, 132, 255, 0.12)",
+          violet: "#7c3aed",
+          blue: "#2563eb",
         },
       },
       fontFamily: {
@@ -23,8 +26,8 @@ const config: Config = {
         display: ["var(--font-display)", "var(--font-sans)", "system-ui", "sans-serif"],
       },
       fontSize: {
-        "display-xl": ["clamp(2.75rem,6vw,4.5rem)", { lineHeight: "1.05", letterSpacing: "-0.03em" }],
-        "display-lg": ["clamp(2rem,4vw,3.25rem)", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
+        "display-xl": ["clamp(3rem,6vw,5.85rem)", { lineHeight: "0.98", letterSpacing: "-0.03em" }],
+        "display-lg": ["clamp(2.15rem,4vw,3.75rem)", { lineHeight: "1.04", letterSpacing: "-0.02em" }],
       },
       animation: {
         "gradient-shift": "gradient-shift 14s ease infinite",

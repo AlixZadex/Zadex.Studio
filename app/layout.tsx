@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Inter, Outfit } from "next/font/google";
 import { site } from "@/lib/site";
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   other: {
-    "theme-color": "#050505",
+    "theme-color": "#f8fafc",
   },
 };
 
@@ -55,3 +55,4 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     </html>
   );
 }
+

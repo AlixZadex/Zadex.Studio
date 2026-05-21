@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+﻿import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { isAppLocale } from "@/lib/i18n/config";
@@ -44,3 +44,5 @@ export default async function LocaleLayout({
     </>
   );
 }
+
+

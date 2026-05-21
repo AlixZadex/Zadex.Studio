@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -27,29 +27,33 @@ export function Footer() {
   const lp = useLocalizedPath();
 
   return (
-    <footer className="border-t border-white/[0.06] bg-surface">
-      <Container className="py-16 sm:py-20">
-        <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
-          <div className="max-w-sm">
-            <Link href={lp("/")} className="inline-flex items-center gap-2 font-display text-xl tracking-tight text-white">
-              <span className="relative h-8 w-28 overflow-hidden">
+    <footer className="relative overflow-hidden border-t border-slate-950/[0.07] bg-surface">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_0%,rgba(110,231,255,0.10),transparent_36%),radial-gradient(circle_at_85%_0%,rgba(155,124,255,0.10),transparent_34%)]" />
+      <Container className="relative py-16 sm:py-20">
+        <div className="grid gap-12 lg:grid-cols-[1.35fr_1fr_1fr_1fr]">
+          <div className="max-w-md">
+            <Link href={lp("/")} className="inline-flex items-center gap-2 font-display text-xl tracking-tight text-slate-950">
+              <span className="relative h-10 w-36 overflow-hidden">
                 <Image
                   src="/images/zadex.logo.png"
-                  alt="Zadex logo"
+                  alt="zadex logo"
                   fill
                   sizes="112px"
-                  className="object-contain scale-[2.8]"
+                  className="object-contain"
                 />
               </span>
             </Link>
-            <p className="mt-4 text-sm leading-relaxed text-muted">{t("site.description")}</p>
+            <p className="mt-5 text-sm leading-relaxed text-muted">{t("site.description")}</p>
+            <div className="mt-6 inline-flex rounded-full border border-blue-500/15 bg-blue-500/10 px-3 py-1 text-xs font-medium text-blue-700">
+              Stockholm · websites · digital help
+            </div>
           </div>
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">{t("footer.company")}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-950/50">{t("footer.company")}</p>
             <ul className="mt-4 space-y-2">
               {companyLinks.map((l) => (
                 <li key={l.href}>
-                  <Link href={lp(l.href)} className="text-sm text-muted transition-colors hover:text-white">
+                  <Link href={lp(l.href)} className="text-sm text-muted transition-colors hover:text-slate-950">
                     {t(l.labelKey)}
                   </Link>
                 </li>
@@ -57,11 +61,11 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">{t("footer.work")}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-950/50">{t("footer.work")}</p>
             <ul className="mt-4 space-y-2">
               {workLinks.map((l) => (
                 <li key={l.href}>
-                  <Link href={lp(l.href)} className="text-sm text-muted transition-colors hover:text-white">
+                  <Link href={lp(l.href)} className="text-sm text-muted transition-colors hover:text-slate-950">
                     {t(l.labelKey)}
                   </Link>
                 </li>
@@ -69,13 +73,13 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">{t("footer.social")}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-950/50">{t("footer.social")}</p>
             <ul className="mt-4 space-y-2">
               {socialLinks.map((l) => (
                 <li key={l.label}>
                   <a
                     href={l.href}
-                    className="text-sm text-muted transition-colors hover:text-white"
+                    className="text-sm text-muted transition-colors hover:text-slate-950"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -86,11 +90,11 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-14 flex flex-col gap-3 border-t border-white/[0.06] pt-8 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 flex flex-col gap-3 border-t border-slate-950/[0.07] pt-8 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {site.name}. {t("footer.rights")}
           </p>
-          <div className="text-white/40 sm:text-right">
+          <div className="text-slate-950/42 sm:text-right">
             <p>{site.address}</p>
             <p className="mt-1">Org.nr {site.orgNumber}</p>
           </div>
@@ -99,3 +103,5 @@ export function Footer() {
     </footer>
   );
 }
+
+

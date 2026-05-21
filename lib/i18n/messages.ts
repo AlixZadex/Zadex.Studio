@@ -1,4 +1,4 @@
-import type { AppLocale } from "@/lib/i18n/config";
+﻿import type { AppLocale } from "@/lib/i18n/config";
 
 export type Locale = AppLocale;
 
@@ -9,7 +9,7 @@ const en = {
   "nav.about": "About",
   "nav.contact": "Contact",
   "nav.studio": "Studio",
-  "nav.quote": "Get a quote",
+  "nav.quote": "Build with zadex",
   "nav.menuOpen": "Open menu",
   "nav.menuClose": "Close menu",
 
@@ -18,7 +18,7 @@ const en = {
   "lang.sv": "Swedish",
 
   "site.description":
-    "zadex is a digital studio crafting fast, refined websites for brands that refuse to blend in.",
+    "zadex is a Stockholm web studio building premium websites, landing pages, and smart digital solutions for modern businesses.",
 
   "footer.company": "Company",
   "footer.work": "Work",
@@ -26,118 +26,132 @@ const en = {
   "footer.process": "Process",
   "footer.rights": "All rights reserved.",
 
-  "home.hero.eyebrow": "Digital studio · Stockholm",
-  "home.hero.title": "Websites that feel inevitable.",
+  "home.hero.eyebrow": "Web studio · Stockholm",
+  "home.hero.title": "Premium websites for businesses that want to look sharper online.",
   "home.hero.body":
-    "zadex designs and builds premium web experiences for businesses that care about clarity, speed, and craft. From first impression to conversion, every detail is intentional.",
-  "home.hero.cta1": "Start a project",
-  "home.hero.cta2": "View selected work",
+    "zadex designs and builds websites, landing pages, and digital experiences with the polish of a premium studio. Need automation, AI, dashboards, or a smarter workflow too? We can help with that.",
+  "home.hero.cta1": "Start a website",
+  "home.hero.cta2": "View work",
   "home.hero.emailHint": "Prefer email?",
-  "home.hero.trust1": "Reply within one business day",
-  "home.hero.trust2": "Senior-led delivery",
-  "home.hero.trust3": "Built for speed and clarity",
+  "home.hero.trust1": "Premium web design",
+  "home.hero.trust2": "Smart digital add-ons",
+  "home.hero.trust3": "Premium frontend craft",
 
-  "featured.eyebrow": "Selected work",
-  "featured.title": "Recent launches with measurable impact.",
+  "featured.eyebrow": "Case studies",
+  "featured.title": "Websites and digital builds with a sharper business purpose.",
   "featured.description":
-    "Each engagement is tailored—here is a snapshot of the kind of work we ship for ambitious teams.",
-  "featured.allProjects": "All projects",
-  "featured.hint": "Looking for something specific?",
-  "featured.hintLink": "Tell us about your goals",
+    "A look at how we turn websites, landing pages, and practical digital tools into polished experiences.",
+  "featured.allProjects": "View all work",
+  "featured.hint": "Need more than a website?",
+  "featured.hintLink": "Tell us what you want to improve",
 
-  "servicesIntro.eyebrow": "Capabilities",
-  "servicesIntro.title": "Built for businesses that want a site they are proud to share.",
+  "servicesIntro.eyebrow": "What we build",
+  "servicesIntro.title": "A web agency foundation, with room for smarter digital solutions.",
   "servicesIntro.description":
-    "We combine product thinking with meticulous frontend craft—so your website feels as serious as your business.",
-  "servicesIntro.item1.title": "Websites & platforms",
+    "Most projects start with a website. From there we can add the extra layers a modern business needs: landing pages, automation, dashboards, content systems, or AI-assisted workflows.",
+  "servicesIntro.item1.title": "Premium websites",
   "servicesIntro.item1.body":
-    "Brand-led sites with editorial structure, performance budgets, and CMS workflows your team can actually use.",
-  "servicesIntro.item2.title": "Landing & launch",
+    "Fast, cinematic websites with strong positioning, conversion paths, content structure, and technical credibility.",
+  "servicesIntro.item2.title": "Landing pages",
   "servicesIntro.item2.body":
-    "High-converting launch pages with sharp messaging, motion that supports the story, and analytics-ready foundations.",
-  "servicesIntro.item3.title": "Design systems",
+    "Campaign and launch pages with sharp messaging, premium motion, analytics, and clear calls to action.",
+  "servicesIntro.item3.title": "Website redesign",
   "servicesIntro.item3.body":
-    "Coherent UI foundations—typography, spacing, components—so your product scales without visual drift.",
-  "servicesIntro.explore": "Explore services",
+    "A modern upgrade for businesses whose current site no longer matches their quality, offer, or ambition.",
+  "servicesIntro.item4.title": "Automation and AI help",
+  "servicesIntro.item4.body":
+    "Smart add-ons like lead routing, AI assistants, follow-ups, intake forms, and workflows that reduce manual work.",
+  "servicesIntro.item5.title": "Internal dashboards",
+  "servicesIntro.item5.body":
+    "Operational interfaces for teams that need to see status, manage requests, and act quickly.",
+  "servicesIntro.item6.title": "SaaS prototypes",
+  "servicesIntro.item6.body":
+    "Polished product concepts and web apps that help founders validate, pitch, and ship faster.",
+  "servicesIntro.explore": "Explore capabilities",
 
   "why.eyebrow": "Why zadex",
-  "why.title": "A studio mindset—with the rigor of a product team.",
+  "why.title": "A premium web studio that can think beyond the website.",
   "why.description":
-    "We are small by design: senior attention on every engagement, direct communication, and work that holds up when your brand is in the spotlight.",
-  "why.r1.title": "Clarity over noise",
+    "The website is the center. Around it, we can design the forms, automations, content flows, and small tools that make the business easier to run.",
+  "why.r1.title": "Strategy before decoration",
   "why.r1.text":
-    "We design for decision-making: hierarchy, pacing, and messaging that helps visitors understand you in seconds.",
-  "why.r2.title": "Performance as polish",
+    "We clarify what the site or system must do before we design how it looks. The result feels sharp instead of ornamental.",
+  "why.r2.title": "Extra help when it matters",
   "why.r2.text":
-    "Fast load, smooth motion, accessible contrast—luxury is how a site feels under real-world conditions.",
-  "why.r3.title": "Partnership, not handoff",
+    "If your project needs AI, automation, booking flows, dashboards, or lead systems, we add it in a way that supports the website instead of distracting from it.",
+  "why.r3.title": "Built to evolve",
   "why.r3.text":
-    "You get a build you can evolve: sensible structure, documented patterns, and support when you need it.",
+    "Reusable components, structured content, and clean implementation make the system easier to grow after launch.",
 
-  "testimonials.eyebrow": "Clients",
-  "testimonials.title": "Trusted by teams who care about craft.",
-  "testimonials.description": "We work with operators who want a website that earns attention—and keeps it.",
+  "testimonials.eyebrow": "Trust",
+  "testimonials.title": "Designed for teams that want the digital layer to feel as strong as the business.",
+  "testimonials.description":
+    "Signals that matter: clarity, speed, reliability, and a process that does not waste your time.",
   "testimonials.q1.quote":
-    "zadex rebuilt our web presence with rare taste and technical discipline. The site finally matches the quality of our product.",
-  "testimonials.q1.name": "Elin Forsberg",
-  "testimonials.q1.role": "CMO, Northline Capital",
+    "zadex translated a messy idea into a polished system with clear positioning, motion, and technical confidence.",
+  "testimonials.q1.name": "Example client",
+  "testimonials.q1.role": "Founder, B2B company",
   "testimonials.q2.quote":
-    "Clear process, fast iterations, and a frontend that feels expensive. Our conversion metrics moved within weeks of launch.",
-  "testimonials.q2.name": "Marcus Dahl",
-  "testimonials.q2.role": "Founder, Atelier Noir",
+    "The result felt more like a product launch than a website refresh. Premium, fast, and easy to understand.",
+  "testimonials.q2.name": "Example client",
+  "testimonials.q2.role": "Operations lead",
 
-  "ctaBanner.eyebrow": "Next step",
-  "ctaBanner.title": "Ready when you are.",
+  "ctaBanner.eyebrow": "Next system",
+  "ctaBanner.title": "Need a website first, and maybe something smarter around it?",
   "ctaBanner.body":
-    "Share your timeline, audience, and ambitions—we will respond with a clear plan and a realistic path to launch.",
-  "ctaBanner.btn1": "Book an intro call",
-  "ctaBanner.btn2": "See how we work",
+    "We can start with the site, then shape the extra digital pieces around it: landing pages, forms, automations, AI support, dashboards, or a small web app.",
+  "ctaBanner.btn1": "Start a website",
+  "ctaBanner.btn2": "See the process",
 
-  "project.liveSite": "Live site",
+  "project.liveSite": "Live",
   "project.caseStudy": "Case study",
-  "project.view": "View project",
-  "project.discuss": "Discuss a similar build",
+  "project.view": "Start a similar project",
+  "project.discuss": "Discuss a similar system",
   "project.github": "GitHub",
   "project.prevImage": "Show previous image",
   "project.nextImage": "Show next image",
   "project.showImage": "Show image",
+  "project.problem": "Problem",
+  "project.solution": "Solution",
+  "project.result": "Result",
+  "project.stack": "Stack",
 
   "about.hero.eyebrow": "About",
-  "about.hero.title": "A small studio with a high bar.",
+  "about.hero.title": "A Stockholm studio for sharper digital operations.",
   "about.hero.description":
-    "zadex exists to help businesses present themselves with clarity and confidence online—without the bloat, templates, or noisy trends that age quickly.",
+    "zadex helps businesses turn websites, AI, and automation into one coherent digital layer: premium on the outside, practical under the hood.",
   "about.believe.title": "What we believe",
   "about.believe.p1":
-    "A great website is not decoration—it is infrastructure for trust. It should explain what you do, who it is for, and why it matters, in a way that feels effortless on every device.",
+    "A serious website is not decoration. It is a trust system, a sales system, and often the front door to how your company works.",
   "about.believe.p2":
-    "We bias toward restraint: typography that reads beautifully, motion that supports comprehension, and performance that respects your visitor’s time.",
+    "We design with restraint, build with performance in mind, and use AI where it makes the experience faster, clearer, or more useful.",
   "about.mission.label": "Mission",
   "about.mission.body":
-    "Help ambitious teams look unmistakably premium online—through craft, clarity, and code that holds up.",
+    "Help ambitious businesses launch premium digital systems powered by clean design, automation, and reliable engineering.",
   "about.story.title": "Our story",
   "about.story.p1":
-    "zadex started as a reaction to “good enough” web work—sites that looked fine in a deck but felt fragile in production. We built the studio around a simple promise: senior execution, direct collaboration, and outcomes you can measure.",
+    "zadex started as a reaction to websites that looked fine but did very little. The new direction is broader: websites connected to workflows, data, and AI-powered service.",
   "about.story.p2":
-    "Today we partner with founders, marketing leaders, and operators who want a digital presence that matches the quality of their product—and who value a team that treats the details as non-negotiable.",
+    "Today we work for founders and operators who want their digital presence to feel modern, trustworthy, and operationally useful.",
   "about.col1.title": "Why we do it",
   "about.col1.body":
-    "The first interaction many customers have with your business is your website. We want that moment to feel intentional—worthy of the work behind your brand.",
+    "Modern customers expect fast answers, clear interfaces, and polished experiences. We help businesses meet that standard.",
   "about.col2.title": "Our approach",
   "about.col2.body":
-    "We align on goals early, design with real content, and build with maintainability in mind—so your site stays strong after launch, not only on day one.",
+    "We map the offer, design the interface, and build the system in reusable parts so it can evolve after launch.",
   "about.col3.title": "How we collaborate",
   "about.col3.body":
-    "Clear milestones, async-friendly updates, and candid recommendations. You will always know what is happening, what is next, and why it matters.",
+    "Clear milestones, direct communication, and senior execution. You always know what is being built and why.",
 
   "contact.hero.eyebrow": "Contact",
-  "contact.hero.title": "Tell us what you are building.",
+  "contact.hero.title": "Tell us what you want to build, automate, or improve.",
   "contact.hero.description":
-    "Expect a thoughtful reply within one business day. If we are a fit, we will propose a focused plan—not a generic pitch deck.",
+    "Share the business goal, current problem, and ideal timeline. If it is a fit, we will respond with a focused path forward.",
   "contact.label.email": "Email",
   "contact.label.phone": "Phone",
   "contact.label.studio": "Studio",
   "contact.note":
-    "If you already have a brief, timeline, or references—attach context in your message. The more concrete you are, the more useful our first response will be.",
+    "Send links, references, or workflow details if you have them. The more context we get, the sharper the first recommendation will be.",
 
   "contact.form.name": "Name",
   "contact.form.email": "Email",
@@ -145,227 +159,296 @@ const en = {
   "contact.form.company": "Company",
   "contact.form.service": "Service needed",
   "contact.form.message": "Message",
-  "contact.form.placeholder": "Tell us about goals, timeline, and anything we should know.",
+  "contact.form.placeholder": "Tell us about goals, timeline, current tools, and what should feel easier.",
   "contact.form.selectPlaceholder": "Select a service",
   "contact.form.submit": "Send message",
-  "contact.form.sending": "Sending…",
+  "contact.form.sending": "Sending...",
   "contact.form.selectService": "Please select a service.",
   "contact.form.successTitle": "Message received",
   "contact.form.successBody":
-    "Thank you — your note is on its way. We typically reply within one business day with clear next steps.",
+    "Thank you. Your note is on its way. We typically reply within one business day with clear next steps.",
   "contact.form.sendAnother": "Send another message",
   "contact.form.errorGeneric": "Something went wrong.",
   "contact.form.errorNetwork": "Network error. Check your connection and try again.",
 
-  "contact.service.businessWebsite": "Business website",
+  "contact.service.businessWebsite": "AI-powered website",
   "contact.service.landingPage": "Landing page",
   "contact.service.redesign": "Website redesign",
-  "contact.service.frontend": "Frontend development",
-  "contact.service.uiux": "UI/UX design",
+  "contact.service.frontend": "Web app / prototype",
+  "contact.service.uiux": "Automation / AI workflow",
   "contact.service.other": "Something else",
 
   "projects.hero.eyebrow": "Work",
-  "projects.hero.title": "Projects built for real businesses—and real outcomes.",
+  "projects.hero.title": "Realistic website projects for modern businesses.",
   "projects.hero.description":
-    "Each build balances brand presence with practical goals: clearer positioning, stronger credibility, and smoother customer journeys.",
-  "projects.cta.title": "Want a portfolio piece like this for your brand?",
+    "A curated set of typical client websites: portfolio, company landing page, restaurant, and fitness.",
+  "projects.cta.title": "Want a website that looks this polished?",
   "projects.cta.description":
-    "Bring your objectives—we will shape the narrative, design, and build into one coherent launch.",
+    "Bring the business, offer, and goal. We will turn it into a modern, trustworthy, production-ready website.",
   "projects.cta.button": "Start a conversation",
 
   "process.hero.eyebrow": "Process",
-  "process.hero.title": "A calm, structured path from idea to launch.",
-  "process.hero.description": "No mystery phases—just a proven sequence that keeps momentum high and decisions clear.",
-  "process.step1.title": "Discovery",
+  "process.hero.title": "A focused path from business problem to polished system.",
+  "process.hero.description":
+    "No vague phases. We move from strategy to interface to implementation with clear decisions and visible progress.",
+  "process.step1.title": "Map",
   "process.step1.text":
-    "We clarify goals, audiences, constraints, and success metrics—so design decisions map to outcomes, not opinions.",
-  "process.step2.title": "Direction",
+    "We identify the audience, offer, workflows, bottlenecks, and success metrics before design begins.",
+  "process.step2.title": "Position",
   "process.step2.text":
-    "A tight creative direction: typography, layout logic, and interaction principles that set the tone for the full build.",
+    "We sharpen the message, section structure, service architecture, and the role AI or automation should play.",
   "process.step3.title": "Design",
   "process.step3.text":
-    "High-fidelity layouts with real content structure—reviewed iteratively until the narrative and hierarchy feel inevitable.",
+    "We create a cinematic, responsive interface with strong hierarchy, motion, and conversion points.",
   "process.step4.title": "Build",
   "process.step4.text":
-    "Frontend implementation with accessibility, performance, and maintainability as defaults—not afterthoughts.",
+    "We implement in Next.js with clean components, performance-minded styling, accessibility, and reusable data.",
   "process.step5.title": "Launch",
   "process.step5.text":
-    "QA, analytics hooks, handoff documentation, and support—so your team can ship updates with confidence.",
-  "process.bottom.title": "Ready to begin?",
-  "process.bottom.body": "Share your timeline and goals—we will respond with next steps.",
+    "We QA, refine, connect analytics or forms, and prepare the system for real customers and future iteration.",
+  "process.bottom.title": "Ready to make the digital layer smarter?",
+  "process.bottom.body": "Share what should work better. We will propose the smallest serious first version.",
   "process.bottom.button": "Contact zadex",
 
   "services.hero.eyebrow": "Services",
-  "services.hero.title": "Everything you need to show up like the leader you are.",
+  "services.hero.title": "Premium websites first. Smarter digital help when you need it.",
   "services.hero.description":
-    "From narrative to navigation, we build digital experiences that earn trust—then make it easy for people to take the next step.",
-  "services.s1.title": "Business websites",
+    "We work like a web agency at the core: strategy, design, copy, frontend, and launch. Then we can add automation, AI, dashboards, or web apps where they create real value.",
+  "services.s1.title": "Premium websites",
   "services.s1.description":
-    "A flagship site that frames your offer with confidence—structured storytelling, case paths, and conversion points that feel natural.",
+    "Flagship websites with cinematic design, clear positioning, strong structure, and conversion paths that feel natural.",
   "services.s1.value":
-    "Outcome: a credible first touchpoint that shortens sales cycles and supports recruiting, partnerships, and press.",
+    "Outcome: a premium first impression that explains the business, captures intent, and supports growth.",
   "services.s2.title": "Landing pages",
   "services.s2.description":
-    "Launch moments deserve precision: sharp copy rhythm, social proof placement, and performance tuned for paid and organic traffic.",
+    "Focused pages for campaigns, offers, launches, and services that need a clear message and a strong next step.",
   "services.s2.value":
-    "Outcome: higher intent capture without gimmicks—clarity that converts and analytics that make iteration obvious.",
+    "Outcome: fewer manual steps, faster response times, and less lost context between tools.",
   "services.s3.title": "Website redesign",
   "services.s3.description":
-    "Modernize without losing equity—information architecture, brand alignment, and a component model that is easier to maintain.",
+    "A cleaner, sharper version of your current website when the business has outgrown the old one.",
   "services.s3.value":
-    "Outcome: a site that looks contemporary, loads fast, and reflects where your business is today—not five years ago.",
-  "services.s4.title": "Frontend development",
+    "Outcome: better service even when the team is busy, without making the brand feel robotic.",
+  "services.s4.title": "Automation and AI support",
   "services.s4.description":
-    "Production-grade implementation with accessible markup, resilient layouts, and performance budgets you can feel.",
+    "Lead routing, AI chat support, form flows, follow-ups, and simple automations that make the website more useful.",
   "services.s4.value":
-    "Outcome: maintainable code, fewer surprises in QA, and a site that stays fast as content grows.",
-  "services.s5.title": "UI/UX design",
+    "Outcome: sharper campaigns and clearer conversion signals from day one.",
+  "services.s5.title": "Internal dashboards",
   "services.s5.description":
-    "Interfaces with hierarchy and restraint—systems thinking, tasteful motion, and patterns that scale across pages.",
+    "Interfaces for managing requests, viewing status, tracking leads, or controlling internal workflows.",
   "services.s5.value":
-    "Outcome: a cohesive experience that feels premium on day one and stays coherent as you ship new sections.",
-  "services.bottom.title": "Tell us what you are launching.",
+    "Outcome: a calmer operational view that helps teams act quickly and consistently.",
+  "services.s6.title": "Content systems",
+  "services.s6.description":
+    "Structured content and CMS-friendly components for teams that publish pages, cases, insights, or service updates.",
+  "services.s6.value":
+    "Outcome: faster publishing without breaking the design system.",
+  "services.s7.title": "Web apps and SaaS prototypes",
+  "services.s7.description":
+    "Polished prototypes and early product interfaces for founders who need to validate, pitch, or ship fast.",
+  "services.s7.value":
+    "Outcome: a credible product experience before investing in a full platform.",
+  "services.bottom.title": "Tell us what should become easier.",
   "services.bottom.description":
-    "We will recommend the smallest effective scope—then deliver it with craft and momentum.",
-  "services.bottom.button": "Get a quote",
+    "We will recommend a focused scope and build the most valuable first version with polish.",
+  "services.bottom.button": "Build with zadex",
 } as const;
 
 const sv: Record<keyof typeof en, string> = {
   "nav.home": "Hem",
-  "nav.services": "Tjänster",
+  "nav.services": 
+    "Tjänster",
   "nav.projects": "Projekt",
-  "nav.about": "Om oss",
+  "nav.about": 
+    "Om oss",
   "nav.contact": "Kontakt",
   "nav.studio": "Studio",
-  "nav.quote": "Begär offert",
-  "nav.menuOpen": "Öppna meny",
-  "nav.menuClose": "Stäng meny",
+  "nav.quote": 
+    "Bygg med zadex",
+  "nav.menuOpen": 
+    "Öppna meny",
+  "nav.menuClose": 
+    "Stäng meny",
 
   "lang.switch": "Språk",
-  "lang.en": "Engelska",
-  "lang.sv": "Svenska",
+  "lang.en": 
+    "Engelska",
+  "lang.sv": 
+    "Svenska",
 
   "site.description":
-    "zadex är en digital studio som bygger snabba, genomarbetade webbplatser för varumärken som vägrar att försvinna i mängden.",
+    
+    "zadex är en webbstudio i Stockholm som bygger premiumwebbplatser, landningssidor och smarta digitala lösningar för moderna företag.",
 
-  "footer.company": "Företag",
+  "footer.company": 
+    "Företag",
   "footer.work": "Arbete",
   "footer.social": "Socialt",
   "footer.process": "Process",
-  "footer.rights": "Alla rättigheter förbehållna.",
+  "footer.rights": 
+    "Alla rättigheter förbehållna.",
 
-  "home.hero.eyebrow": "Digital studio · Stockholm",
-  "home.hero.title": "Webbplatser som känns självklara.",
+  "home.hero.eyebrow": 
+    "Webbstudio · Stockholm",
+  "home.hero.title": 
+    "Premiumwebb för företag som vill se skarpare ut online.",
   "home.hero.body":
-    "zadex formger och bygger premiumupplevelser för företag som bryr sig om tydlighet, tempo och hantverk. Från första intryck till konvertering är varje detalj medveten.",
-  "home.hero.cta1": "Starta ett projekt",
-  "home.hero.cta2": "Se utvalt arbete",
-  "home.hero.emailHint": "Föredrar du e-post?",
-  "home.hero.trust1": "Svar inom en arbetsdag",
-  "home.hero.trust2": "Seniordriven leverans",
-  "home.hero.trust3": "Byggt för tydlighet och hastighet",
+    
+    "zadex designar och bygger webbplatser, landningssidor och digitala upplevelser med premiumkänsla. Behöver du även automation, AI, dashboards eller smartare flöden kan vi hjälpa till med det också.",
+  "home.hero.cta1": 
+    "Starta webbprojekt",
+  "home.hero.cta2": 
+    "Se våra case",
+  "home.hero.emailHint": 
+    "Föredrar du e-post?",
+  "home.hero.trust1": 
+    "Premium webbdesign",
+  "home.hero.trust2": 
+    "Smarta digitala tillägg",
+  "home.hero.trust3": "Premium frontend",
 
-  "featured.eyebrow": "Utvalt arbete",
-  "featured.title": "Senaste lanseringar med mätbar effekt.",
+  "featured.eyebrow": "Case",
+  "featured.title": 
+    "Webbplatser och digitala byggen med tydligare affärsnytta.",
   "featured.description":
-    "Varje uppdrag är skräddarsytt—här är ett urval av det vi levererar till ambitiösa team.",
-  "featured.allProjects": "Alla projekt",
-  "featured.hint": "Letar du efter något specifikt?",
-  "featured.hintLink": "Berätta om dina mål",
+    
+    "Så här gör vi webbplatser, landningssidor och praktiska digitala verktyg till polerade upplevelser.",
+  "featured.allProjects": "Visa alla projekt",
+  "featured.hint": 
+    "Behöver du mer än en webbplats?",
+  "featured.hintLink": 
+    "Berätta vad du vill förbättra",
 
-  "servicesIntro.eyebrow": "Kapacitet",
-  "servicesIntro.title": "Byggt för företag som vill ha en sajt de stolt kan dela.",
+  "servicesIntro.eyebrow": 
+    "Det vi bygger",
+  "servicesIntro.title": 
+    "En webbyrå i grunden, med plats för smartare digitala lösningar.",
   "servicesIntro.description":
-    "Vi kombinerar produkttänk med noggrant frontend-hantverk—så att din webbplats känns lika seriös som din verksamhet.",
-  "servicesIntro.item1.title": "Webbplatser & plattformar",
+    
+    "De flesta projekt börjar med en webbplats. Därifrån kan vi lägga till det moderna företag ofta behöver: landningssidor, automation, interna vyer, innehållssystem eller AI-stödda flöden.",
+  "servicesIntro.item1.title": 
+    "Premiumwebbplatser",
   "servicesIntro.item1.body":
-    "Varumärkesledda sajter med redaktionell struktur, prestandabudgetar och CMS-flöden som teamet faktiskt kan använda.",
-  "servicesIntro.item2.title": "Landning & lansering",
+    
+    "Snabba, filmiska webbplatser med stark positionering, konverteringsvägar, innehållsstruktur och teknisk trovärdighet.",
+  "servicesIntro.item2.title": 
+    "Landningssidor",
   "servicesIntro.item2.body":
-    "Konverterande lanseringssidor med skarp ton, rörelse som stöttar berättelsen och analysredo grund.",
-  "servicesIntro.item3.title": "Designsystem",
+    
+    "Kampanj- och lanseringssidor med skarpt budskap, premiumkänsla, analys och tydliga vägar vidare.",
+  "servicesIntro.item3.title": 
+    "Webbomdesign",
   "servicesIntro.item3.body":
-    "Sammanhängande UI-grund—typografi, spacing och komponenter—så att produkten kan växa utan visuell drift.",
-  "servicesIntro.explore": "Utforska tjänster",
+    
+    "En modern uppgradering för företag vars nuvarande webb inte längre matchar kvaliteten, erbjudandet eller ambitionen.",
+  "servicesIntro.item4.title": 
+    "Automation och AI-hjälp",
+  "servicesIntro.item4.body":
+    
+    "Smarta tillägg som leadflöden, AI-assistenter, uppföljningar, intagsformulär och arbetsflöden som minskar manuellt arbete.",
+  "servicesIntro.item5.title": "Interna dashboards",
+  "servicesIntro.item5.body":
+    
+    "Operativa gränssnitt för team som behöver se status, hantera ärenden och agera snabbt.",
+  "servicesIntro.item6.title": "SaaS-prototyper",
+  "servicesIntro.item6.body":
+    
+    "Polerade produktkoncept och webbappar som hjälper grundare att validera, pitcha och lansera snabbare.",
+  "servicesIntro.explore": 
+    "Se tjänster",
 
   "why.eyebrow": "Varför zadex",
-  "why.title": "Studiotänk—med rigor som ett produktteam.",
+  "why.title": 
+    "En premium webbstudio som kan tänka längre än själva webbplatsen.",
   "why.description":
-    "Vi är små med flit: senior uppmärksamhet i varje uppdrag, rak kommunikation och arbete som håller när varumärket står i rampljuset.",
-  "why.r1.title": "Tydlighet före brus",
+    
+    "Webbplatsen är centrum. Runt den kan vi designa formulär, automationer, content-flöden och små verktyg som gör verksamheten enklare att driva.",
+  "why.r1.title": "Strategi före dekoration",
   "why.r1.text":
-    "Vi designar för beslut: hierarki, tempo och budskap som hjälper besökare att förstå er på några sekunder.",
-  "why.r2.title": "Prestanda som finish",
+    "Vi klargör vad sidan eller systemet måste göra innan vi bestämmer hur det ska se ut. Resultatet känns skarpt, inte pyntat.",
+  "why.r2.title": 
+    "Extra hjälp när det behövs",
   "why.r2.text":
-    "Snabb laddning, mjuk rörelse, tillgänglig kontrast—lyx är hur en sajt känns i verkligheten.",
-  "why.r3.title": "Partnerskap, inte överlämning",
+    
+    "Om projektet behöver AI, automation, bokningsflöden, dashboards eller leadsystem lägger vi till det på ett sätt som stärker webben.",
+  "why.r3.title": "Byggt för att utvecklas",
   "why.r3.text":
-    "Du får en leverans du kan utveckla: tydlig struktur, dokumenterade mönster och stöd när du behöver det.",
+    "Återanvändbara komponenter, strukturerat innehåll och ren implementation gör systemet enklare att växa efter lansering.",
 
-  "testimonials.eyebrow": "Kunder",
-  "testimonials.title": "Förtroende från team som bryr sig om kvalitet.",
-  "testimonials.description": "Vi jobbar med ledare som vill ha en webb som förtjänar uppmärksamhet—och behåller den.",
+  "testimonials.eyebrow": "Förtroende",
+  "testimonials.title": "För team som vill att det digitala lagret ska kännas lika starkt som verksamheten.",
+  "testimonials.description":
+    "Signaler som betyder något: tydlighet, hastighet, tillförlitlighet och en process som inte slösar tid.",
   "testimonials.q1.quote":
-    "zadex byggde om vår närvaro med sällsynt smak och teknisk disciplin. Sajten matchar äntligen kvaliteten i vår produkt.",
-  "testimonials.q1.name": "Elin Forsberg",
-  "testimonials.q1.role": "CMO, Northline Capital",
+    "zadex översatte en rörig idé till ett polerat system med tydlig positionering, rörelse och teknisk trygghet.",
+  "testimonials.q1.name": "Exempelkund",
+  "testimonials.q1.role": "Grundare, B2B-bolag",
   "testimonials.q2.quote":
-    "Tydlig process, snabba iterationer och ett gränssnitt som känns dyrare. Våra konverteringssiffror rörde sig inom veckor.",
-  "testimonials.q2.name": "Marcus Dahl",
-  "testimonials.q2.role": "Grundare, Atelier Noir",
+    "Resultatet kändes mer som en produktlansering än en webbuppdatering. Premium, snabbt och lätt att förstå.",
+  "testimonials.q2.name": "Exempelkund",
+  "testimonials.q2.role": "Operations lead",
 
-  "ctaBanner.eyebrow": "Nästa steg",
-  "ctaBanner.title": "Redo när du är.",
+  "ctaBanner.eyebrow": 
+    "Nästa steg",
+  "ctaBanner.title": 
+    "Behöver du en webb först, och kanske något smartare runt den?",
   "ctaBanner.body":
-    "Dela tidslinje, målgrupp och ambitioner—vi svarar med en tydlig plan och en realistisk väg till lansering.",
-  "ctaBanner.btn1": "Boka ett intro",
-  "ctaBanner.btn2": "Se hur vi jobbar",
+    
+    "Vi kan börja med sajten och sedan forma de extra digitala delarna runt den: landningssidor, formulär, automationer, AI-stöd, dashboards eller en mindre webbapp.",
+  "ctaBanner.btn1": 
+    "Starta webbprojekt",
+  "ctaBanner.btn2": "Se processen",
 
-  "project.liveSite": "Live-sajt",
+  "project.liveSite": "Live",
   "project.caseStudy": "Case",
-  "project.view": "Visa projekt",
-  "project.discuss": "Diskutera en liknande lösning",
+  "project.view": "Starta liknande projekt",
+  "project.discuss": "Diskutera ett liknande system",
   "project.github": "GitHub",
   "project.prevImage": "Visa föregående bild",
   "project.nextImage": "Visa nästa bild",
   "project.showImage": "Visa bild",
+  "project.problem": "Problem",
+  "project.solution": "Lösning",
+  "project.result": "Resultat",
+  "project.stack": "Stack",
 
   "about.hero.eyebrow": "Om oss",
-  "about.hero.title": "En liten studio med högt i tak.",
+  "about.hero.title": "En Stockholmsstudio för smartare digital drift.",
   "about.hero.description":
-    "zadex finns för att hjälpa företag att presentera sig med tydlighet och självförtroende online—utan onödig tyngd, mallar eller trender som åldras fort.",
+    "zadex hjälper företag att göra webb, AI och automation till ett sammanhängande digitalt lager: premium på utsidan, praktiskt under huven.",
   "about.believe.title": "Vad vi tror på",
   "about.believe.p1":
-    "En stark webbplats är inte dekoration—den är infrastruktur för förtroende. Den ska förklara vad ni gör, för vem och varför det spelar roll, på ett sätt som känns enkelt på alla enheter.",
+    "En seriös webbplats är inte dekoration. Den är ett förtroendesystem, ett säljsystem och ofta första dörren in till hur företaget fungerar.",
   "about.believe.p2":
-    "Vi lutar oss mot återhållsamhet: typografi som läses vackert, rörelse som stöttar förståelse och prestanda som respekterar besökarens tid.",
+    "Vi designar återhållsamt, bygger för prestanda och använder AI där upplevelsen blir snabbare, tydligare eller mer användbar.",
   "about.mission.label": "Uppdrag",
   "about.mission.body":
-    "Hjälpa ambitiösa team att se självklart premium online—genom hantverk, tydlighet och kod som håller.",
+    "Hjälpa ambitiösa företag lansera premiumsystem drivna av ren design, automation och pålitlig engineering.",
   "about.story.title": "Vår historia",
   "about.story.p1":
-    "zadex föddes som ett svar på webbar som var “bra nog”—fina i en presentation men sköra i produktion. Vi byggde studion kring ett enkelt löfte: senior leverans, rak samverkan och resultat du kan mäta.",
+    "zadex började som en reaktion på webbplatser som såg okej ut men gjorde väldigt lite. Den nya riktningen är bredare: webbplatser kopplade till flöden, data och AI-driven service.",
   "about.story.p2":
-    "Idag samarbetar vi med grundare, marknadsförare och operatörer som vill att den digitala närvaron matchar produktens kvalitet—och som värdesätter ett team där detaljerna inte är valfria.",
+    "Idag arbetar vi med grundare och operatörer som vill att deras digitala närvaro ska kännas modern, trovärdig och operativt användbar.",
   "about.col1.title": "Varför vi gör det",
   "about.col1.body":
-    "För många kunder är webbplatsen första mötet med ert företag. Vi vill att ögonblicket känns medvetet—värdigt arbetet bakom varumärket.",
+    "Moderna kunder förväntar sig snabba svar, tydliga gränssnitt och polerade upplevelser. Vi hjälper företag möta den nivån.",
   "about.col2.title": "Vårt arbetssätt",
   "about.col2.body":
-    "Vi synkar mål tidigt, designar med riktigt innehåll och bygger för underhåll—så att sajten håller efter lansering, inte bara dag ett.",
+    "Vi kartlägger erbjudandet, designar gränssnittet och bygger systemet i återanvändbara delar så det kan utvecklas efter lansering.",
   "about.col3.title": "Hur vi samarbetar",
   "about.col3.body":
-    "Tydliga milstolpar, asynkvänliga uppdateringar och ärliga rekommendationer. Du vet alltid vad som händer, vad som kommer härnäst och varför det spelar roll.",
+    "Tydliga milstolpar, direkt kommunikation och senior leverans. Du vet alltid vad som byggs och varför.",
 
   "contact.hero.eyebrow": "Kontakt",
-  "contact.hero.title": "Berätta vad du bygger.",
+  "contact.hero.title": "Berätta vad du vill bygga, automatisera eller förbättra.",
   "contact.hero.description":
-    "Räkna med ett genomtänkt svar inom en arbetsdag. Om vi är rätt match föreslår vi en fokuserad plan—inte en generisk pitch.",
+    "Dela affärsmålet, nuvarande problem och önskad tidslinje. Om det är rätt match återkommer vi med en fokuserad väg framåt.",
   "contact.label.email": "E-post",
   "contact.label.phone": "Telefon",
   "contact.label.studio": "Studio",
   "contact.note":
-    "Om du redan har brief, tidslinje eller referenser—lägg med det i meddelandet. Ju konkretare du är, desto mer användbart blir vårt första svar.",
+    "Skicka länkar, referenser eller detaljer om arbetsflöden om du har dem. Ju mer kontext vi får, desto skarpare blir första rekommendationen.",
 
   "contact.form.name": "Namn",
   "contact.form.email": "E-post",
@@ -373,94 +456,125 @@ const sv: Record<keyof typeof en, string> = {
   "contact.form.company": "Företag",
   "contact.form.service": "Tjänst",
   "contact.form.message": "Meddelande",
-  "contact.form.placeholder": "Berätta om mål, tidslinje och vad vi bör veta.",
+  "contact.form.placeholder": "Berätta om mål, tidslinje, nuvarande verktyg och vad som borde bli enklare.",
   "contact.form.selectPlaceholder": "Välj en tjänst",
   "contact.form.submit": "Skicka meddelande",
-  "contact.form.sending": "Skickar…",
+  "contact.form.sending": "Skickar...",
   "contact.form.selectService": "Välj en tjänst.",
   "contact.form.successTitle": "Meddelandet har skickats",
   "contact.form.successBody":
-    "Tack — ditt meddelande är på väg. Vi svarar vanligtvis inom en arbetsdag med tydliga nästa steg.",
+    "Tack. Ditt meddelande är på väg. Vi svarar vanligtvis inom en arbetsdag med tydliga nästa steg.",
   "contact.form.sendAnother": "Skicka ett nytt meddelande",
   "contact.form.errorGeneric": "Något gick fel.",
   "contact.form.errorNetwork": "Nätverksfel. Kontrollera anslutningen och försök igen.",
 
-  "contact.service.businessWebsite": "Företagswebb",
+  "contact.service.businessWebsite": "AI-driven webbplats",
   "contact.service.landingPage": "Landningssida",
   "contact.service.redesign": "Webbomdesign",
-  "contact.service.frontend": "Frontendutveckling",
-  "contact.service.uiux": "UI/UX-design",
+  "contact.service.frontend": "Webbapp / prototyp",
+  "contact.service.uiux": "Automation / AI-flöde",
   "contact.service.other": "Något annat",
 
-  "projects.hero.eyebrow": "Arbete",
-  "projects.hero.title": "Projekt byggda för verkliga företag—och verkliga resultat.",
+  "projects.hero.eyebrow": 
+    "Arbete",
+  "projects.hero.title": 
+    "Realistiska webbprojekt för moderna företag.",
   "projects.hero.description":
-    "Varje bygge balanserar varumärke med praktiska mål: tydligare positionering, starkare trovärdighet och smidigare kundresor.",
-  "projects.cta.title": "Vill du ha ett portfolioarbete i den här stilen?",
+    "Ett urval av typiska kundwebbar: portfolio, företagslandning, restaurang och fitness.",
+  "projects.cta.title": "Vill du ha en webbplats som känns så här polerad?",
   "projects.cta.description":
-    "Ta med dina mål—vi formar berättelse, design och bygge till en sammanhängande lansering.",
+    "Ta med företaget, erbjudandet och målet. Vi gör det till en modern, trovärdig och produktionsredo webbplats.",
   "projects.cta.button": "Starta en dialog",
 
   "process.hero.eyebrow": "Process",
-  "process.hero.title": "En lugn, strukturerad väg från idé till lansering.",
-  "process.hero.description": "Inga mystiska faser—bara en beprövad ordning som håller tempo och beslut tydliga.",
-  "process.step1.title": "Kartläggning",
+  "process.hero.title": "En fokuserad väg från affärsproblem till polerat system.",
+  "process.hero.description":
+    "Inga vaga faser. Vi går från strategi till gränssnitt och implementation med tydliga beslut och synlig framdrift.",
+  "process.step1.title": "Kartlägg",
   "process.step1.text":
-    "Vi klargör mål, målgrupper, begränsningar och framgångsmått—så designbeslut kopplas till utfall, inte åsikter.",
-  "process.step2.title": "Riktning",
+    "Vi identifierar målgrupp, erbjudande, arbetsflöden, flaskhalsar och framgångsmått innan designen börjar.",
+  "process.step2.title": "Positionera",
   "process.step2.text":
-    "En tajt kreativ riktning: typografi, layoutlogik och interaktionsprinciper som sätter tonen för hela bygget.",
-  "process.step3.title": "Design",
+    "Vi skärper budskapet, sektionsstrukturen, tjänstearkitekturen och vilken roll AI eller automation ska spela.",
+  "process.step3.title": "Designa",
   "process.step3.text":
-    "Högupplösta layouter med riktig innehållsstruktur—itererat tills berättelse och hierarki känns självklara.",
+    "Vi skapar ett filmiskt, responsivt gränssnitt med stark hierarki, rörelse och tydliga konverteringspunkter.",
   "process.step4.title": "Bygg",
   "process.step4.text":
-    "Frontend med tillgänglighet, prestanda och underhållbarhet som standard—inte som eftertanke.",
-  "process.step5.title": "Lansering",
+    "Vi implementerar i Next.js med rena komponenter, prestandamedveten styling, tillgänglighet och återanvändbar data.",
+  "process.step5.title": "Lansera",
   "process.step5.text":
-    "QA, analyskopplingar, överlämningsdokumentation och stöd—så ert team kan publicera uppdateringar med trygghet.",
-  "process.bottom.title": "Redo att börja?",
-  "process.bottom.body": "Dela tidslinje och mål—vi återkommer med nästa steg.",
+    "Vi QA:ar, förfinar, kopplar analys eller formulär och förbereder systemet för riktiga kunder och fortsatt iteration.",
+  "process.bottom.title": "Redo att göra det digitala lagret smartare?",
+  "process.bottom.body": "Dela vad som borde fungera bättre. Vi föreslår minsta seriösa första version.",
   "process.bottom.button": "Kontakta zadex",
 
-  "services.hero.eyebrow": "Tjänster",
-  "services.hero.title": "Allt du behöver för att synas som ledaren du är.",
+  "services.hero.eyebrow": 
+    "Tjänster",
+  "services.hero.title": 
+    "Premiumwebb först. Smartare digital hjälp när du behöver det.",
   "services.hero.description":
-    "Från berättelse till navigation bygger vi digitala upplevelser som skapar förtroende—och gör nästa steg enkelt.",
-  "services.s1.title": "Företagswebbar",
+    
+    "Vi arbetar som en webbyrå i kärnan: strategi, design, copy, frontend och lansering. Sedan kan vi addera automation, AI, dashboards eller webbappar där det skapar verkligt värde.",
+  "services.s1.title": 
+    "Premiumwebbplatser",
   "services.s1.description":
-    "En flaggskeppssajt som ramar in ert erbjudande med trygghet—strukturerad storytelling, casevägar och naturliga konverteringspunkter.",
+    
+    "Flaggskeppswebbar med filmisk design, tydlig positionering, stark struktur och konverteringsvägar som känns naturliga.",
   "services.s1.value":
-    "Utfall: ett trovärdigt första möte som kortar säljcykler och stöttar rekrytering, partnerskap och press.",
-  "services.s2.title": "Landningssidor",
+    "Resultat: ett starkt första intryck som förklarar verksamheten, fångar intresse och stöttar tillväxt.",
+  "services.s2.title": 
+    "Landningssidor",
   "services.s2.description":
-    "Lanseringar förtjänar precision: tydlig copy, social proof och prestanda trimmad för betald och organisk trafik.",
+    
+    "Fokuserade sidor för kampanjer, erbjudanden, lanseringar och tjänster som behöver ett tydligt budskap och nästa steg.",
   "services.s2.value":
-    "Utfall: högre intent utan trick—tydlighet som konverterar och analys som gör iteration uppenbar.",
-  "services.s3.title": "Webbomdesign",
+    "Resultat: skarpare kampanjer, tydligare erbjudanden och bättre konverteringssignaler från dag ett.",
+  "services.s3.title": 
+    "Webbomdesign",
   "services.s3.description":
-    "Modernisera utan att tappa kapital—informationsarkitektur, varumärkeslinje och en komponentmodell som är lättare att underhålla.",
+    
+    "En renare och skarpare version av din nuvarande webb när företaget har vuxit ifrån den gamla.",
   "services.s3.value":
-    "Utfall: en sajt som ser nutida ut, laddar snabbt och speglar var ni är idag—inte för fem år sedan.",
-  "services.s4.title": "Frontendutveckling",
+    "Resultat: en webbplats som känns modernare, tydligare och mer i linje med företagets nivå.",
+  "services.s4.title": 
+    "Automation och AI-stöd",
   "services.s4.description":
-    "Produktionsredo implementation med tillgänglig markup, robusta layouter och prestandabudgetar du känner.",
+    
+    "Leadflöden, AI-chattstöd, formulär, uppföljningar och enkla automationer som gör webbplatsen mer användbar.",
   "services.s4.value":
-    "Utfall: underhållbar kod, färre överraskningar i QA och en sajt som förblir snabb när innehållet växer.",
-  "services.s5.title": "UI/UX-design",
+    "Resultat: färre manuella steg, snabbare svar och mindre förlorad kontext mellan verktyg.",
+  "services.s5.title": "Interna dashboards",
   "services.s5.description":
-    "Gränssnitt med hierarki och återhållsamhet—systemtänk, smakfull rörelse och mönster som skalar över sidor.",
+    "Gränssnitt för att hantera ärenden, se status, följa leads eller styra interna arbetsflöden.",
   "services.s5.value":
-    "Utfall: en sammanhängande upplevelse som känns premium dag ett och håller ihop när ni bygger vidare.",
-  "services.bottom.title": "Berätta vad du lanserar.",
+    "Resultat: en lugnare operativ vy som hjälper team agera snabbt och konsekvent.",
+  "services.s6.title": "Innehållssystem",
+  "services.s6.description":
+    "Strukturerat innehåll och CMS-vänliga komponenter för team som publicerar sidor, case, insikter eller tjänsteuppdateringar.",
+  "services.s6.value":
+    "Resultat: snabbare publicering utan att designsystemet går sönder.",
+  "services.s7.title": "Webbappar och SaaS-prototyper",
+  "services.s7.description":
+    "Polerade prototyper och tidiga produktgränssnitt för grundare som behöver validera, pitcha eller lansera snabbt.",
+  "services.s7.value":
+    "Resultat: en trovärdig produktupplevelse innan full plattformsinvestering.",
+  "services.bottom.title": 
+    "Berätta vad din webbplats behöver göra.",
   "services.bottom.description":
-    "Vi rekommenderar minsta effektiva omfattning—och levererar den med tempo och hantverk.",
-  "services.bottom.button": "Begär offert",
+    "Vi rekommenderar en fokuserad omfattning och bygger den mest värdefulla första versionen med hög finish.",
+  "services.bottom.button": 
+    
+    "Starta ett projekt",
 };
 
 export type MessageKey = keyof typeof en;
 
 export const messages: Record<Locale, Record<MessageKey, string>> = {
-  en: en,
-  sv: sv,
+  en,
+  sv,
 };
+
+
+
+

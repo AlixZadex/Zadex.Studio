@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useState, type MouseEvent, type ReactNode } from "react";
@@ -26,9 +26,9 @@ const base =
   "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium tracking-wide transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none disabled:opacity-50";
 
 const variants = {
-  primary: `${base} bg-accent text-background hover:bg-white hover:shadow-[0_0_0_1px_rgba(255,255,255,0.08)]`,
-  secondary: `${base} border border-white/15 bg-white/[0.03] text-white hover:border-accent/40 hover:bg-white/[0.06]`,
-  ghost: `${base} bg-transparent text-white/90 hover:bg-white/[0.06]`,
+  primary: `${base} border border-blue-500/20 bg-[linear-gradient(135deg,#020617_0%,#0f5eff_48%,#7c3aed_100%)] text-white shadow-[0_18px_44px_rgba(37,99,235,0.24)] hover:shadow-[0_22px_58px_rgba(37,99,235,0.34)]`,
+  secondary: `${base} border border-slate-950/12 bg-white/70 text-slate-950 shadow-[0_12px_34px_rgba(15,23,42,0.08)] backdrop-blur-xl hover:border-blue-500/30 hover:bg-white hover:shadow-[0_18px_44px_rgba(37,99,235,0.12)]`,
+  ghost: `${base} bg-transparent text-slate-800 hover:bg-slate-950/[0.05] hover:text-slate-950`,
 };
 
 export function Button(props: ButtonProps & { variant?: keyof typeof variants }) {
@@ -85,3 +85,5 @@ export function Button(props: ButtonProps & { variant?: keyof typeof variants })
     </button>
   );
 }
+
+

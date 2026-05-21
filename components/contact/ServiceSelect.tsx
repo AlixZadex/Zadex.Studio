@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -61,17 +61,17 @@ export function ServiceSelect({
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-controls={listId}
-        aria-invalid={hasError || undefined}
+        aria-describedby={hasError ? `${id}-error` : undefined}
         onClick={() => {
           if (!disabled) setOpen((o) => !o);
         }}
-        className={`flex w-full items-center justify-between gap-3 rounded-2xl border bg-[#0a0a0a] px-4 py-3 text-left text-sm outline-none transition focus:border-accent/50 focus:ring-2 focus:ring-accent/20 disabled:opacity-50 ${
-          hasError ? "border-red-400/40" : "border-white/[0.08]"
+        className={`flex w-full items-center justify-between gap-3 rounded-2xl border bg-white/80 px-4 py-3 text-left text-sm outline-none transition focus:border-accent/50 focus:ring-2 focus:ring-accent/20 disabled:opacity-50 ${
+          hasError ? "border-red-400/40" : "border-slate-950/[0.08]"
         } ${open && !hasError ? "border-accent/40" : ""}`}
       >
-        <span className={displayMuted ? "text-white/35" : "text-white"}>{display}</span>
+        <span className={displayMuted ? "text-slate-950/35" : "text-slate-950"}>{display}</span>
         <svg
-          className={`h-4 w-4 shrink-0 text-white/50 transition-transform ${open ? "rotate-180" : ""}`}
+          className={`h-4 w-4 shrink-0 text-slate-950/50 transition-transform ${open ? "rotate-180" : ""}`}
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -91,7 +91,7 @@ export function ServiceSelect({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute left-0 right-0 z-50 mt-2 max-h-64 overflow-auto rounded-2xl border border-white/[0.12] bg-[#111] py-1 shadow-[0_24px_48px_rgba(0,0,0,0.55)]"
+            className="absolute left-0 right-0 z-50 mt-2 max-h-64 overflow-auto rounded-2xl border border-slate-950/[0.12] bg-white py-1 shadow-[0_24px_48px_rgba(15,23,42,0.16)]"
           >
             {options.map((opt) => {
               const selected = value === opt.value;
@@ -104,7 +104,7 @@ export function ServiceSelect({
                   className={`w-full px-4 py-2.5 text-left text-sm transition ${
                     selected
                       ? "bg-accent/15 text-accent"
-                      : "text-white/90 hover:bg-white/[0.08] hover:text-white"
+                      : "text-slate-950/90 hover:bg-slate-950/[0.06] hover:text-slate-950"
                   }`}
                   onClick={() => {
                     onChange(opt.value);
@@ -121,3 +121,5 @@ export function ServiceSelect({
     </div>
   );
 }
+
+

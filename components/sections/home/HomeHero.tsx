@@ -1,27 +1,34 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useMotionTemplate, useMotionValue, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { useLocale } from "@/lib/i18n/LanguageContext";
 import { useLocalizedPath } from "@/lib/i18n/useLocalizedPath";
 import { site } from "@/lib/site";
+
 const heroContainer = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.09, delayChildren: 0.06 },
+    transition: { staggerChildren: 0.08, delayChildren: 0.05 },
   },
 };
 
 const heroItem = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 22, filter: "blur(10px)" },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const },
+    filter: "blur(0px)",
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
@@ -35,45 +42,40 @@ export function HomeHero() {
     target: heroRef,
     offset: ["start start", "end start"],
   });
-  const rightParallaxY = useTransform(scrollYProgress, [0, 1], [0, -44]);
-  const rightParallaxScale = useTransform(scrollYProgress, [0, 1], [1, 0.965]);
-  const rightParallaxOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.82]);
-  const leftParallaxY = useTransform(scrollYProgress, [0, 1], [0, -20]);
-  const pointerX = useMotionValue(50);
-  const pointerY = useMotionValue(40);
-  const pointerLight = useMotionTemplate`radial-gradient(520px circle at ${pointerX}% ${pointerY}%, rgba(200,255,61,0.14), transparent 60%)`;
+  const leftParallaxY = useTransform(scrollYProgress, [0, 1], [0, -24]);
 
   return (
     <section
       ref={heroRef}
-      className="relative overflow-hidden border-b border-white/[0.06]"
-      onMouseMove={(e) => {
-        if (prefersReducedMotion) return;
-        const rect = e.currentTarget.getBoundingClientRect();
-        pointerX.set(((e.clientX - rect.left) / rect.width) * 100);
-        pointerY.set(((e.clientY - rect.top) / rect.height) * 100);
-      }}
+      className="relative isolate overflow-hidden border-b border-slate-950/[0.07]"
     >
-      <div className="pointer-events-none absolute inset-0 opacity-60 hero-grid" />
-      <div className="pointer-events-none absolute inset-0 vignette" />
-      <div className="pointer-events-none absolute -left-1/3 top-0 hidden h-[520px] w-[520px] rounded-full bg-accent/10 blur-[100px] sm:block" />
-      <div className="pointer-events-none absolute -right-1/4 bottom-0 hidden h-[420px] w-[420px] rounded-full bg-white/[0.04] blur-[80px] sm:block" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_30%,rgba(200,255,61,0.12),transparent_40%)]" />
-      <motion.div className="pointer-events-none absolute inset-0 hidden lg:block" style={prefersReducedMotion ? undefined : { background: pointerLight }} />
+      <Image
+        src="/images/hero-studio-background.png"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="pointer-events-none absolute inset-0 -z-10 object-cover object-center"
+      />
+      <div className="pointer-events-none absolute inset-0 bg-white/38" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.9)_0%,rgba(255,255,255,0.64)_42%,rgba(255,255,255,0.24)_100%)]" />
+      <div className="pointer-events-none absolute inset-0 vignette opacity-70" />
+      <div className="pointer-events-none absolute inset-0 grain opacity-20" />
 
-      <Container className="relative flex min-h-[82svh] items-center py-16 sm:py-20 lg:py-24">
+      <Container className="relative flex min-h-[88svh] items-center py-16 sm:py-20 lg:py-24">
         <motion.div
-          className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]"
+          className="w-full"
           initial={prefersReducedMotion ? false : "hidden"}
           animate="visible"
           variants={heroContainer}
         >
           <motion.div className="max-w-4xl" style={prefersReducedMotion ? undefined : { y: leftParallaxY }}>
-            <motion.p variants={heroItem} className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">
-              {t("home.hero.eyebrow")}
-            </motion.p>
-            <motion.h1 variants={heroItem} className="mt-6 font-display text-display-xl text-balance text-white">
-              {t("home.hero.title")}
+            <motion.div variants={heroItem} className="inline-flex items-center gap-3 rounded-full border border-slate-950/10 bg-white/75 px-3 py-2 text-xs text-slate-950/70 shadow-[0_12px_34px_rgba(15,23,42,0.08)] backdrop-blur-xl">
+              <span className="h-2 w-2 rounded-full bg-accent shadow-[0_0_18px_rgba(0,132,255,0.7)]" />
+              <span className="font-semibold uppercase tracking-[0.22em] text-accent">{t("home.hero.eyebrow")}</span>
+            </motion.div>
+            <motion.h1 variants={heroItem} className="mt-7 max-w-5xl font-display text-display-xl text-balance text-slate-950">
+              <span className="text-gradient">{t("home.hero.title")}</span>
             </motion.h1>
             <motion.p variants={heroItem} className="mt-8 max-w-2xl text-lg leading-relaxed text-muted sm:text-xl">
               {t("home.hero.body")}
@@ -84,46 +86,25 @@ export function HomeHero() {
                 {t("home.hero.cta2")}
               </Button>
             </motion.div>
-            <motion.ul variants={heroItem} className="mt-6 flex flex-wrap items-center gap-3 text-xs text-white/65 sm:text-sm">
+            <motion.ul variants={heroItem} className="mt-7 flex flex-wrap items-center gap-3 text-xs text-slate-950/68 sm:text-sm">
               {trustPoints.map((point) => (
-                <li key={point} className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5">
+                <li key={point} className="rounded-full border border-slate-950/10 bg-white/70 px-3 py-1.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]">
                   {point}
                 </li>
               ))}
             </motion.ul>
-            <motion.p variants={heroItem} className="mt-12 text-sm text-white/40">
+            <motion.p variants={heroItem} className="mt-12 text-sm text-slate-950/45">
               {t("home.hero.emailHint")}{" "}
-              <Link href={`mailto:${site.email}`} className="text-white/70 underline-offset-4 hover:text-accent hover:underline">
+              <Link href={`mailto:${site.email}`} className="text-slate-950/75 underline-offset-4 hover:text-accent hover:underline">
                 {site.email}
               </Link>
             </motion.p>
           </motion.div>
 
-          <motion.div
-            variants={heroItem}
-            className="relative hidden lg:flex lg:justify-center"
-            style={prefersReducedMotion ? undefined : { y: rightParallaxY, scale: rightParallaxScale, opacity: rightParallaxOpacity }}
-          >
-            <div className="relative w-full max-w-[440px]">
-              <motion.div
-                className="pointer-events-none absolute inset-x-10 inset-y-12 rounded-full bg-accent/12 blur-[72px]"
-                animate={prefersReducedMotion ? undefined : { opacity: [0.35, 0.55, 0.35], scale: [0.98, 1.04, 0.98] }}
-                transition={prefersReducedMotion ? undefined : { duration: 8, repeat: Infinity, ease: "easeInOut" }}
-              />
-              <div className="relative flex aspect-[16/10] items-center justify-center">
-                <Image
-                  src="/images/zadex.logo.png"
-                  alt="Zadex logo"
-                  width={420}
-                  height={210}
-                  className="h-auto w-[96%] scale-[1.22] object-contain opacity-100"
-                  priority
-                />
-              </div>
-            </div>
-          </motion.div>
         </motion.div>
       </Container>
     </section>
   );
 }
+
+
